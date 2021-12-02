@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Tech Bros Blog</title>
+    <link rel="icon" href="/images/logo.png" type="image/png" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- Six Caps Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Teko Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Six+Caps&family=Teko:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+
+    {{! HEADER AND NAV }}
+    <header>
+      <img id="logo" src="/images/logo.png" />
+      <div id="lettermark">
+        <h2>The</h2>
+        <h1>TECH BROS<span>.</span></h1>
+        <h2>Blog</h2>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li><a id="blog" href="#">home</a></li>
+          <li><a id="dash" href="#">dash</a></li>
+          <li><a id="login" href="#">login</a></li>
+          <!-- <li><a id="logout" href="#">logout</a></li> -->
+        </ul>
+      </nav>
+    </header>
+
+    {{! BODY CONTENT }}
+    <main>
+      {{{body}}}
+    </main>
+
+    <script src="../../public/js/login.js"></script>
+    <footer></footer>
+  </body>
+</html>

@@ -1,31 +1,41 @@
-const express = require('express');
-const fs = require('fs');
-const path = require('path');
-// const uuid = require("./helpers/uuid");
 
-const PORT = process.env.PORT || 3001;
+const path = require("path");
+const express = require("express");
+const session = require("express-session");
+const exphbs = require("express-handlebars");
+const routes = require("./controller");
+const helpers = require("./utils/helpers");
+
+const sequelize = require("./config/connection");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
+const PORT = process.env.PORT || 3001;
+const hbs = exphbs.create({ helpers });
 
-// Middleware for parsing JSON and urlencoded form data
+const sess = {
+  secret: "Top Secret",
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+app.use(express(sess));
+
+// Inform Express.js on which template engine to use
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use(express.static('public'));
+app.use(routes);
 
-// GET Route for homepage
-app.get('/', (req, res) =>
-  res.sendFile('/public/index.html')
-);
-
-// GET 404 for anything that we don't have
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, './public/404.html'))
-);
-
-app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT} 🚀`)
-);
-
-
-
+sequelize.sync().then(() => {
+  app.listen(PORT, () => console.log("Now listening on port 3001!"));
+});
 
