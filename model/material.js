@@ -23,7 +23,7 @@ Material.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Material",
+    modelName: "material",
   }
 );
 
