@@ -1,0 +1,23 @@
+[
+  {
+    "material": "Cardboard",
+    "description": "I have a pallet of corrugated cardboard material from my job's warehouse out back. Whoever gets here first!",
+    "amount": "1 pallet",
+    "location": "Atlanta",
+    "userId": 1
+  },
+  {
+    "material": "Electronics",
+    "description": "I want to giveaway my old desktop computer, it kinda works, might have a virus or three",
+    "amount": "1 personal computer",
+    "location": "Alpharetta",
+    "userId": 2
+  },
+  {
+    "material": "Aluminum",
+    "description": "I have a bunch of cans that still haven't been picked up by my recycling company, up for grabs, probably worth something.",
+    "amount": "2 trash bags",
+    "location": "Toccoa",
+    "userId": 3
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "type": "Plastic",
+    "is_hazardous": "False"
+  },
+  {
+    "id": 2,
+    "type": "Glass",
+    "is_hazardous": "False"
+  },
+  {
+    "id": 3,
+    "type": "Aluminum",
+    "is_hazardous": "False"
+  },
+  {
+    "id": 4,
+    "type": "Steel",
+    "is_hazardous": "False"
+  },
+  {
+    "id": 5,
+    "type": "Cardboard",
+    "is_hazardous": "False"
+  },
+  {
+    "id": 6,
+    "type": "Paper",
+    "is_hazardous": "False"
+  },
+  {
+    "id": 7,
+    "type": "Electronics",
+    "is_hazardous": "true"
+  },
+  {
+    "id": 8,
+    "type": "Appliances",
+    "is_hazardous": "true"
+  },
+  {
+    "id": 9,
+    "type": "Concrete",
+    "is_hazardous": "False"
+  },
+  {
+    "id": 10,
+    "type": "Oil",
+    "is_hazardous": "True"
+  },
+  {
+    "id": 11,
+    "type": "Batteries",
+    "is_hazardous": "True"
+  }
+]
