@@ -6,16 +6,16 @@ Post.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-Post.hasOne(Material, {
-  foreignKey: "post_id",
+Post.belongsTo(Material, {
+  foreignKey: "material_id",
 });
 
 Material.hasMany(Post, {
-  foreignKey: "post_id",
+  foreignKey: "material_id",
 });
 
 User.hasMany(Post, {
-  foreignKey: "post_id",
+  foreignKey: "user_id",
 });
 
 module.exports = {

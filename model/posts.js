@@ -14,7 +14,7 @@ Post.init(
     //     type: DataTypes.???,
     //     allowNull: true,
     //   },
-    material: {
+    material_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -31,11 +31,7 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
+    
     location: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -51,10 +47,10 @@ Post.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "Post",
+    modelName: "post",
   }
 );
 
