@@ -13,6 +13,7 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
 }
 
 #logo {
@@ -23,15 +24,209 @@ body {
 }
 
 nav {
-    margin-left: 40px;
+  position: sticky;
+  top: 100pt;
+  left: 80pt;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   text-align: center;
 }
 
+main {
+  margin-left: 120pt;
+}
+
+#home,
+#profile,
+#search {
+  width: 35px;
+  margin: 15pt;
+}
+
+#profile {
+margin-left: 25pt;
+}
+
+#search {
+  margin-left: 20pt;
+}
+
+#home_text {
+  color: #2da24e;
+}
+
+#profile_text:hover,
+#search_text:hover   {
+  color: #2da24e;
+}
+
+button {
+  background-color: transparent;
+  border-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 10pt;
+  align-items: center;
+}
+
+.buttons {
+  margin: 35pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Lettermark */
 h1 {
   font-family: 'Amatic SC', cursive;
   font-size: 34pt;
   color:#E0E2DB;
 }
+
+/* Slogan */
+h2 {
+  font-family: 'Sue Ellen Francisco', cursive;
+  font-size: 18pt;
+  color:#13b5d2;
+}
+
+/* Post Title and City */
+h3 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 22pt;
+  color:#E0E2DB;
+}
+
+/* Description and Amount */
+h4 {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12pt;
+  font-weight: 100;
+  color: #1a1a1a;
+  margin: 3pt;
+}
+
+/* User and Date */
+h5 {
+  font-family: 'Sue Ellen Francisco', cursive; 
+  font-size: 16pt;
+  font-weight: 100;
+  color: #2da24e;
+  margin: 5pt;
+}
+
+section {
+  width: 700px;
+  margin: 40pt;
+  border-radius: 8pt;
+  border: 2px solid transparent;
+  box-shadow: 0 8px 35px rgb(19, 19, 19);
+}
+
+form {
+  width: 700px;
+  margin: 40pt;
+  margin-top: 200pt;
+  border-radius: 8pt;
+  border: 2px solid transparent;
+  box-shadow: 0 8px 35px rgb(19, 19, 19);
+}
+
+section:hover,
+form:hover {
+  border: 2px solid #13b5d2;
+  box-shadow: 0 5px 30px rgb(6, 6, 6);
+}
+
+.post_header,
+.title_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* background-color: #1b7835; */
+  background-color: rgb(118, 95, 71);
+  padding: 15px 20px;
+  border-radius: 8pt 8pt 0 0;
+}
+
+.content_body {
+  display: flex;
+  flex-direction: row;
+  align-content: left;
+  background-color: #E0E2DB;
+  border-radius: 0 0 8pt 8pt;
+  text-align: left;
+}
+
+.post_image {
+  width: 150px;
+  border-radius: 0 0 0 7pt;
+}
+
+.content {
+  padding: 10pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user_date {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+input {
+  margin-bottom: 25px;
+  height: 40px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12pt;
+  font-weight: 100;
+  color: #1a1a1a;
+  align-items: top;
+  padding-left: 10pt;
+}
+
+input:focus {
+  outline-color: rgb(109, 191, 254);
+}
+
+@media screen and (max-width: 1200px) {
+html {
+  justify-content: space-around;
+}
+
+  nav {
+position: static;
+  }
+
+  body {
+    flex-direction: column;
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  .buttons {
+    margin: 10pt;
+    margin-left: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  section {
+    width: 600px;
+  }
+  }
+
+@media screen and (max-width: 700px) {
+  section {
+    width: 420px;
+  }
+}
+
+
