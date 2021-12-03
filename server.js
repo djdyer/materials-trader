@@ -3,7 +3,7 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
-const routes = require("./controller");
+const routes = require("./controllers");
 const helpers = require("./utils/helpers");
 
 const sequelize = require("./config/connection");
@@ -23,7 +23,7 @@ const sess = {
   }),
 };
 
-app.use(express(sess));
+app.use(session(sess));
 
 // Inform Express.js on which template engine to use
 app.engine("handlebars", hbs.engine);
@@ -36,6 +36,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
 sequelize.sync().then(() => {
-  app.listen(PORT, () => console.log("Now listening on port 3001!"));
+  app.listen(PORT, () => console.log("Now listening on port", PORT, "!"));
 });
 
