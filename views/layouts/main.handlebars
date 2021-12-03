@@ -1,7 +1,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>The Tech Bros Blog</title>
+    <title>Material Trader</title>
     <link rel="icon" href="/images/logo.png" type="image/png" />
     <link rel="stylesheet" href="/css/style.css" />
     <!-- Six Caps Font -->
@@ -26,16 +26,17 @@
     <header>
       <img id="logo" src="/images/logo.png" />
       <div id="lettermark">
-        <h2>The</h2>
-        <h1>TECH BROS<span>.</span></h1>
-        <h2>Blog</h2>
+        <h1>Material Trader</h1>
       </div>
       <nav>
         <ul class="nav">
-          <li><a id="blog" href="#">home</a></li>
-          <li><a id="dash" href="#">dash</a></li>
-          <li><a id="login" href="#">login</a></li>
-          <!-- <li><a id="logout" href="#">logout</a></li> -->
+          <li><a id="home" href="/">home</a></li>
+          <li><a id="dash" href="/dash">dashboard</a></li>
+          {{#if loggedIn}}
+            <button id="logout" class="btn-no-style">Logout</button>
+          {{else}}
+            <a href="/login">Login</a>
+          {{/if}}
         </ul>
       </nav>
     </header>
@@ -44,7 +45,7 @@
     <main>
       {{{body}}}
     </main>
-
+<p>(main.handlebars)</p>
     <script src="../../public/js/login.js"></script>
     <footer></footer>
   </body>
