@@ -91,7 +91,7 @@ h2 {
   color:#13b5d2;
 }
 
-/* Post Title and City */
+/* Nav Links, Post Title, City */
 h3 {
   font-family: 'Amatic SC', cursive;
   font-size: 22pt;
@@ -144,7 +144,6 @@ form:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* background-color: #1b7835; */
   background-color: rgb(118, 95, 71);
   padding: 15px 20px;
   border-radius: 8pt 8pt 0 0;
@@ -157,6 +156,24 @@ form:hover {
   background-color: #E0E2DB;
   border-radius: 0 0 8pt 8pt;
   text-align: left;
+}
+
+.form_body {
+  padding: 15pt;
+  display: flex;
+  flex-direction: column;
+  align-content: left;
+  background-color: #E0E2DB;
+  text-align: left;
+  border-radius: 0 0 8pt 8pt;
+}
+
+a,li {
+  font-family: 'Amatic SC', cursive;
+  font-size: 22pt;
+  list-style: none;
+  text-decoration: none;
+  color: #2da24e;
 }
 
 .post_image {
@@ -187,11 +204,29 @@ input {
   color: #1a1a1a;
   align-items: top;
   padding-left: 10pt;
+  margin-top: 5pt;
 }
 
 input:focus {
   outline-color: rgb(109, 191, 254);
 }
+
+#loginBtn,
+#signupBtn {
+  background-color: rgb(109, 191, 254);
+  width: 200px;
+  margin-left: 170pt;
+  text-align: center;
+  justify-content: center;
+  padding: 5pt;
+  border: 2px solid transparent;
+}
+
+
+#loginBtn:hover {
+  border: 2px solid #2da24e;
+}
+
 
 @media screen and (max-width: 1200px) {
 html {

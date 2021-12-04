@@ -1,18 +1,21 @@
 {{#each posts as |post|}}
-  <section>
-    <div class="title_header">
-      <h3>{{title}}</h3>
+<section>
+  <div class="post_header">
+    <h3 id="material">{{post.material}}</h3>
+    <h3 id="city">{{post.city}}</h3>
+  </div>
+  <div class="content_body">
+    <img class="post_image" src="/images/cardboard-upload.jpeg"/>
+    <div class="content">
+    <h4 id="description">{{post.description}}</h4>
+    <h4 id="amount">{{post.amount}}</h4>
+    <div class="user_date">
+      <h5 id="username">{{post.username}}</h5>
+      <h5 id="date">{{format_date post.date_created}}</h5>
     </div>
-    <div class="content_body">
-      <h4>
-        {{content}}
-      </h4>
-      <div class="user_date">
-        <h5 id="username">{{post.User.username}}</h5>
-        <span>/</span>
-        <h5 id="date">{{format_date post.date_created}}</h5>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 {{/each}}
-<p>(home.handlebars)</p>
+
+ 
+
