@@ -1,55 +1,75 @@
-<html lang="en">
+<html lang='en-US'>
   <head>
-    <meta charset="UTF-8" />
-    <title>Material Trader</title>
-    <link rel="icon" href="/images/logo.png" type="image/png" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <!-- Six Caps Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+    <title>
+      Materials Trader
+    </title>
+    <link rel='icon' href='/images/logo.png' type='image/png' />
+    <link rel='stylesheet' href='/css/style.css' />
+    <!-- Amatic font -->
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap"
-      rel="stylesheet"
+      href='https://fonts.googleapis.com/css2?family=Amatic+SC&family=Six+Caps&family=Teko:wght@300&display=swap'
+      rel='stylesheet'
     />
-    <!-- Teko Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Sue Ellen Francisco font -->
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Six+Caps&family=Teko:wght@300&display=swap"
-      rel="stylesheet"
+      href='https://fonts.googleapis.com/css2?family=Amatic+SC&family=Six+Caps&family=Sue+Ellen+Francisco&family=Teko:wght@300&display=swap'
+      rel='stylesheet'
     />
   </head>
 
   <body>
-
-    {{! HEADER AND NAV }}
-    <header>
-      <img id="logo" src="/images/logo.png" />
-      <div id="lettermark">
-        <h1>Material Trader</h1>
-      </div>
-      <nav>
-        <ul class="nav">
-          {{!-- <li><a id="home" href="/">home</a></li>
-          <li><a id="dash" href="/dash">dashboard</a></li> --}}
-    <a href="/">Home</a>
-    <a href="/dash">Dashboard</a>
-
+    <nav>
+      <img id='logo' src='/images/logo.png' />
+      <h1>
+        MATERIALS TRADER
+      </h1>
+      <h2>
+        peer to peer recycling
+      </h2>
+      <div class='buttons'>
+        <button>
+          <img id='home' src='/images/home.png' />
+          <h3 id='home_text'>
+            HOME
+          </h3>
+        </button>
+        <button>
+          <img id='profile' src='/images/profile.png' />
           {{#if loggedIn}}
-            <button id="logout" class="btn-no-style">Logout</button>
+            <a href='/profile'>
+              <h3 id='profile_text'>
+                PROFILE
+              </h3>
+            </a>
           {{else}}
-            <a href="/login">Login</a>
+            <a href='/login'>
+              <h3 id='profile_text'>
+                LOGIN
+              </h3>
+            </a>
           {{/if}}
-        </ul>
-      </nav>
-    </header>
+        </button>
+        <button>
+          <img id='search' src='/images/search.png' />
+          <h3 id='search_text'>
+            SEARCH
+          </h3>
+        </button>
+      </div>
+    </nav>
 
-    {{! BODY CONTENT }}
     <main>
       {{{body}}}
     </main>
-<p>(main.handlebars)</p>
-    <script src="./js/login.js"></script>
-    <footer></footer>
+    {{#if loggedIn}}
+      <script src='/js/logout.js'></script>
+    {{/if}}
   </body>
 </html>

@@ -13,6 +13,7 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
 }
 
 #logo {
@@ -23,15 +24,318 @@ body {
 }
 
 nav {
-    margin-left: 40px;
+  position: sticky;
+  top: 100pt;
+  left: 80pt;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   text-align: center;
 }
 
+main {
+  margin-left: 120pt;
+}
+
+#home,
+#profile,
+#search {
+  width: 35px;
+  margin: 15pt;
+}
+
+#profile {
+  margin-left: 25pt;
+}
+
+#search {
+  margin-left: 20pt;
+}
+
+#home_text {
+  color: #2da24e;
+}
+
+#profile_text:hover,
+#search_text:hover {
+  color: #2da24e;
+}
+
+button {
+  background-color: transparent;
+  border-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 10pt;
+  align-items: center;
+}
+
+.buttons {
+  margin: 35pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Lettermark */
 h1 {
-  font-family: 'Amatic SC', cursive;
+  font-family: "Amatic SC", cursive;
   font-size: 34pt;
-  color:#E0E2DB;
+  color: #e0e2db;
+}
+
+/* Slogan */
+h2 {
+  font-family: "Sue Ellen Francisco", cursive;
+  font-size: 18pt;
+  color: #13b5d2;
+}
+
+/* Nav Links, Post Title, City */
+h3 {
+  font-family: "Amatic SC", cursive;
+  font-size: 22pt;
+  color: #e0e2db;
+}
+
+/* Description and Amount */
+h4 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12pt;
+  font-weight: 100;
+  color: #1a1a1a;
+  margin: 3pt;
+}
+
+/* User and Date */
+h5 {
+  font-family: "Sue Ellen Francisco", cursive;
+  font-size: 16pt;
+  font-weight: 100;
+  color: #2da24e;
+  margin: 5pt;
+}
+
+section {
+  width: 700px;
+  margin: 40pt;
+  border-radius: 8pt;
+  border: 2px solid transparent;
+  box-shadow: 0 8px 35px rgb(19, 19, 19);
+}
+
+form,
+.dash {
+  width: 700px;
+  margin: 40pt;
+  margin-top: 200pt;
+  border-radius: 8pt;
+  border: 2px solid transparent;
+  box-shadow: 0 8px 35px rgb(19, 19, 19);
+}
+
+section:hover,
+form:hover {
+  border: 2px solid #13b5d2;
+  box-shadow: 0 5px 30px rgb(6, 6, 6);
+}
+
+.post_header,
+.title_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(118, 95, 71);
+  padding: 15px 20px;
+  border-radius: 8pt 8pt 0 0;
+}
+
+.content_body {
+  display: flex;
+  flex-direction: row;
+  align-content: left;
+  background-color: #e0e2db;
+  border-radius: 0 0 8pt 8pt;
+  text-align: left;
+}
+
+.form_body {
+  padding: 15pt;
+  display: flex;
+  flex-direction: column;
+  align-content: left;
+  background-color: #e0e2db;
+  text-align: left;
+  border-radius: 0 0 8pt 8pt;
+}
+
+.dash_body {
+  padding: 15pt;
+  display: flex;
+  flex-direction: column;
+  align-content: left;
+  background-color: #e0e2db;
+  align-items: center;
+  border-radius: 0 0 8pt 8pt;
+}
+
+a,
+li {
+  font-family: "Amatic SC", cursive;
+  font-size: 22pt;
+  list-style: none;
+  text-decoration: none;
+  color: #2da24e;
+}
+
+.post_image {
+  width: 150px;
+  border-radius: 0 0 0 7pt;
+}
+
+.content {
+  padding: 10pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user_date {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+input {
+  margin-bottom: 25px;
+  height: 40px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12pt;
+  font-weight: 100;
+  color: #1a1a1a;
+  align-items: top;
+  padding-left: 10pt;
+  margin-top: 5pt;
+}
+
+input:focus {
+  outline-color: rgb(109, 191, 254);
+}
+
+#loginBtn,
+#signupBtn,
+#postBtn {
+  background-color: rgb(109, 191, 254);
+  width: 200px;
+  margin-left: 170pt;
+  margin-top: 20pt;
+  text-align: center;
+  justify-content: center;
+  padding: 5pt;
+  border: 2px solid transparent;
+}
+
+#dash_body h4 {
+  text-align: left;
+}
+
+#postBtn {
+  margin: 20pt auto;
+}
+
+#loginBtn:hover {
+  border: 2px solid #2da24e;
+}
+
+.user_posts {
+  background-color: white;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  margin: 10pt;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10pt;
+  border: 2pt solid transparent;
+}
+
+#your_posts {
+  margin-left: -560px;
+  margin-bottom: 10pt;
+}
+
+#post_title {
+  color: #2da24e;
+  margin-left: 5pt;
+}
+
+#postBtn:hover {
+  border: 2px solid #2da24e;
+}
+
+#logout h3:hover {
+  color: #2da24e;
+}
+
+.user_posts:hover {
+  box-shadow: 0 8px 10px rgb(173, 173, 173);
+}
+
+@media screen and (max-width: 1200px) {
+  html {
+    justify-content: space-around;
+  }
+
+  nav {
+    position: static;
+  }
+
+  body {
+    flex-direction: column;
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  .buttons {
+    margin: 10pt;
+    margin-left: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  section {
+    width: 600px;
+  }
+
+  form,
+  .dash {
+    margin-top: 30pt;
+    width: 600px;
+  }
+
+  #your_posts {
+    margin-left: -460px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  section {
+    width: 420px;
+  }
+  form,
+  .dash {
+    margin: 30pt auto;
+    width: 420px;
+  }
+
+  #your_posts {
+    margin-left: -280px;
+  }
+
+  .user_posts {
+    width: 350px;
 }

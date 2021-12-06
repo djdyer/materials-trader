@@ -1,43 +1,77 @@
-const router = require('express').Router();
-const { Topic, Post, Comment } = require('../model');
+const router = require('express').Router()
+const { Material, Post } = require('../model')
 // Import the custom middleware
-const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth')
 
 // GET homepage
 router.get('/', async (req, res) => {
   try {
-    console.log(">>>>>>>>>> / route <<<<<<<<<<<<<<<<<");
+    console.log('>>>>>>>>>> / home route <<<<<<<<<<<<<<<<<')
 
-//     const dbTopicData = await Topic.findAll({
-//       include: [
-//         {
-//           model: Post,
-//           attributes: ['content'],
-//         },
-//       ],
-//     });
+    //     const postData = await Post.findAll({
+    //       include: [
+    //         {
+    //           model: Post,
+    //           attributes: ['content'],
+    //         },
+    //       ],
+    //     });
 
-//     const topics = dbTopicData.map((topic) =>
-//       topic.get({ plain: true })
-//     );
+    //     const topics = dbTopicData.map((topic) =>
+    //       topic.get({ plain: true })
+    //     );
 
     res.render('home', {
       loggedIn: req.session.loggedIn,
-    });
+    })
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    console.log(err)
+    res.status(500).json(err)
   }
-});
+})
 
+// User clicks on profile without Auth, must first login
 router.get('/login', (req, res) => {
-  console.log(">>>>>>>>>>>>>>> /login redirect route <<<<<<<<<<<<<<<<<<");
+  console.log('>>>>>>>>>>>>>>> /login redirect route <<<<<<<<<<<<<<<<<<')
   if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
+    res.redirect('/profile')
+    return
   }
-
-  res.render('login');
+  res.render('login')
 });
 
-module.exports = router;
+router.get('/signup', (req, res) => {
+  console.log('>>>>>>>>>>>>>>> /login redirect route <<<<<<<<<<<<<<<<<<')
+  if (req.session.loggedIn) {
+    res.redirect('/profile')
+    return
+  }
+  res.render('signup')
+});
+
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    console.log('>>>>>>>>>> / profile route <<<<<<<<<<<<<<<<<')
+
+        const postData = await Post.findAll({
+          include: [
+            {
+              model: Material,
+            }],
+          });
+          const posts = postData.map((post) =>
+          post.get({ plain: true })
+          );
+          
+          console.log(posts);
+    res.render('profile', {
+      posts,
+      loggedIn: req.session.loggedIn,
+    })
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+});
+
+module.exports = router
