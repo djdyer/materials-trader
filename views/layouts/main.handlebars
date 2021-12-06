@@ -30,8 +30,11 @@
       </div>
       <nav>
         <ul class="nav">
-          <li><a id="home" href="/">home</a></li>
-          <li><a id="dash" href="/dash">dashboard</a></li>
+          {{!-- <li><a id="home" href="/">home</a></li>
+          <li><a id="dash" href="/dash">dashboard</a></li> --}}
+    <a href="/">Home</a>
+    <a href="/dash">Dashboard</a>
+
           {{#if loggedIn}}
             <button id="logout" class="btn-no-style">Logout</button>
           {{else}}
@@ -46,7 +49,7 @@
       {{{body}}}
     </main>
 <p>(main.handlebars)</p>
-    <script src="../../public/js/login.js"></script>
+    <script src="./js/login.js"></script>
     <footer></footer>
   </body>
 </html>

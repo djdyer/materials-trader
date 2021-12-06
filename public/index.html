@@ -14,8 +14,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Six+Caps&family=Teko:wght@300&display=swap" rel="stylesheet">
 <body>
-  <nav><img id="logo" src="/assets/images/logo.png"/>
+  <nav><img id="logo" src="/assets/images/logo.png" alt="Logo"/>
   <h1>MATERIALS TRADER</h1>
+  <a href="/">Home</a>
+  <a href="/dash">Dashboard</a>
+  {{#if loggedIn}}
+  <button id="logout" class="btn-no-style">Logout</button>
+  {{else}}
+  <a href="/login">Login</a>
+  {{/if}}
+
   <h2>peer to peer recycling
   </h2></nav>
 <main>
@@ -29,6 +37,7 @@
         <h5 id="username">User</h5>
         <h5 id="date">Date</h5>
       </div>
+
     </div>
   </section>
 
