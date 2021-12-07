@@ -1,7 +1,9 @@
+{{#if listings.length}}
+{{#each listings as |listing|}}
 <section class='detail'>
   <div class='title_header'>
     <h3 id='material'>
-      MATERIAL
+      Material
     </h3>
     <h3 id='city'>
       CITY
@@ -13,13 +15,14 @@
   <div class='content_body'>
     <div>
       <h3 class='post_title'>
+        {{listing.description}}
         DESCRIPTION:
       </h3>
       <h4 id='description'>
         Material Description
       </h4>
       <h3 class='post_title'>
-        AMOUNT:
+        AMOUNT: {{listing.amount}}
       </h3>
       <h4 id='amount'>
         Material Amount
@@ -42,3 +45,5 @@
     </div>
   </div>
 </section>
+{{/each}}
+{{/if}}

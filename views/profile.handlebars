@@ -7,10 +7,10 @@
         <div id="your_posts">
         <h4>Your posts:</h4>
         </div>
-{{#each posts as |post|}}
+{{#each listings as |listing|}}
         <div class="user_posts">
-        <h3 class="post_title">{{post.material.type}}</h3>
-        <h5 id="post_date">{{format_date post.createdAt}}</h5>
+        <h3 class="post_title">{{listing.material.type}}</h3>
+        <h5 id="post_date">{{format_date listing.createdAt}}</h5>
         </div>
 {{/each}}
         <button id="postBtn"><h3>POST RECYCLEABLES</h3></button>

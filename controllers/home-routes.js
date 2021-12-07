@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const { Material, Post, User} = require('../model')
+const { Material, Listing, User} = require('../models')
 
 // Import the custom middleware
 const withAuth = require('../utils/auth')
@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
   try {
     console.log('>>>>>>>>>> / home route <<<<<<<<<<<<<<<<<')
 
-        const postData = await Post.findAll({
+        const postData = await Listing.findAll({
           include: [
             {
               model: User,
@@ -24,12 +24,12 @@ router.get('/', async (req, res) => {
           ],
         });
 
-        const posts = postData.map((topic) =>
+        const listings = postData.map((topic) =>
           topic.get({ plain: true })
         );
-console.log(posts)
+console.log(listings)
     res.status(200).render('home', {
-      posts,
+      listings,
       loggedIn: req.session.loggedIn,
     })
   } catch (err) {
@@ -37,6 +37,36 @@ console.log(posts)
     res.status(500).json(err)
   }
 })
+router.get('/listing', withAuth, async (req, res) => {
+  try {
+    console.log(req.session.user_id)
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Listing }],
+    });
+console.log(userData)
+    const users = userData.get({ plain: true });
+    console.log(users)
+    res.render('listing', {
+      
+      ...users,
+      loggedIn: req.session.loggedIn
+    });
+  } 
+  catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+
+
+
+
+
+
+
 
 // User clicks on profile without Auth, must first login
 router.get('/login', (req, res) => {
@@ -61,19 +91,19 @@ router.get('/profile', withAuth, async (req, res) => {
   try {
     console.log('>>>>>>>>>> / profile route <<<<<<<<<<<<<<<<<')
 
-        const postData = await Post.findAll({
+        const postData = await Listing.findAll({
           include: [
             {
               model: Material,
             }],
           });
-          const posts = postData.map((post) =>
+          const listings = postData.map((post) =>
           post.get({ plain: true })
           );
           
-          console.log(posts);
+          console.log(listings);
     res.render('profile', {
-      posts,
+      listings,
       loggedIn: req.session.loggedIn,
     })
   } catch (err) {
