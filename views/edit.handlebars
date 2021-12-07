@@ -1,0 +1,33 @@
+<form class="create">
+        <div class="title_header">
+          <h3>EDIT LISTING</h3>
+        </div>
+        <div class="form_body">
+          <div>
+            <h3 class="post_title">MATERIAL:</h3>
+            <select id="#material-selection"
+            > {{listing.material}}</select>
+            <h3 class="post_title">PHOTO:</h3>
+            <input type="file" id="#photo-selection"
+            > {{listing.photo}}</input>
+            <h3 class="post_title">DESCRIPTION:</h3>
+            <textarea id="#material-description"
+            >{{listing.description}}</textarea>
+            <h3 class="post_title">AMOUNT:</h3>
+            <textarea id="#material-amount"
+            >{{listing.amount}}</textarea>
+            <h3 class="post_title">LOCATION:</h3>
+            <input id="#material-location"
+            >{{listing.location}}</input>
+            <h3 class="post_title">CONTACT:</h3>
+            <input id="#material-contact"
+            >{{listing.contact}}</input>
+          </div>
+          <button type="submit" id="saveBtn">
+            <h3>SAVE</h3>
+          </button>
+          <button type="submit" id="deleteBtn">
+            <h3>DELETE</h3>
+          </button>
+        </div>
+      </form>
