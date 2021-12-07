@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Listing } = require('../../models');
 
 // Sign up
 router.post('/', async (req, res) => {
@@ -60,6 +60,37 @@ router.post('/login', async (req, res) => {
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// Update listing
+router.post('/updatelisting/:id', async (req, res) => {
+  console.log(">>>>>>>>>> POST /updatelisting/:id route <<<<<<<<<<<<<");
+  console.log("req.body",req.body)
+  try {
+    const dbListingReturn = await Listing.update({description: req.body.description}, {
+      where: {
+        id: req.body.listing_id
+      }
+    });
+
+    if (!dbListingReturn) {
+      res
+        .status(400)
+        .json({ message: 'Listing not found; nothing updated!' });
+      return;
+    }
+    dbListingData = await Listing.findByPk(req.body.listing_id);
+
+    const listing = dbListingData.get({ plain: true });
+    console.log("listing:",listing);
+    res.status(200).render('edit', {
+      listing,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);

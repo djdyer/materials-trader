@@ -66,9 +66,25 @@ console.log("userData:",userData)
 router.get('/editlisting/:id', withAuth, async (req, res) => {
   console.log(">>>>>>>>>>>>>>> /editlisting/",req.params.id,"GET route <<<<<<<<<<<<<<<<")  
   try {
-    const dbListingData = await Listing.findByPk(req.params.id);
+    const dbListingData = await Listing.findByPk(req.params.id, {
+      include: [
+        {
+          model: Material,
+          attributes: [
+            'type'
+          ],
+        },
+        {
+          model: User,
+          attributes: [
+            'username'
+          ],
+        },
+      ],
+    });
 
     const listing = dbListingData.get({ plain: true });
+    console.log("listing:",listing);
     res.render('edit', { listing, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
