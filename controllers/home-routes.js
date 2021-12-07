@@ -61,6 +61,21 @@ console.log("userData:",userData)
   }
 });
 
+// GET the form to edit a listing
+// Use the custom middleware before allowing the user to access this route
+router.get('/editlisting/:id', withAuth, async (req, res) => {
+  console.log(">>>>>>>>>>>>>>> /editlisting/",req.params.id,"GET route <<<<<<<<<<<<<<<<")  
+  try {
+    const dbListingData = await Listing.findByPk(req.params.id);
+
+    const listing = dbListingData.get({ plain: true });
+    res.render('edit', { listing, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // User clicks on profile without Auth, must first login
 router.get('/login', (req, res) => {
   console.log('>>>>>>>>>>>>>>> GET /login redirect to /profile route <<<<<<<<<<<<<<<<<<')
@@ -74,7 +89,8 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   console.log('>>>>>>>>>>>>>>> GET /signup redirect to /profile route <<<<<<<<<<<<<<<<<<')
   if (req.session.loggedIn) {
-    res.redirect('/profile');
+
+
   }
   //   res.redirect('/profile')
   //   return
