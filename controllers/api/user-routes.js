@@ -3,6 +3,8 @@ const { User } = require('../../models');
 
 // Sign up
 router.post('/', async (req, res) => {
+  console.log(">>>>>>>>>> POST / sign-up route <<<<<<<<<<<<<");
+
   try {
     const dbUserData = await User.create({
       username: req.body.username,
@@ -14,7 +16,9 @@ router.post('/', async (req, res) => {
       req.session.user_id = dbUserData.id;
       req.session.loggedIn = true;
 
-      res.status(200).json(dbUserData);
+      // res.status(200).json(dbUserData);
+      res.render('home', { loggedIn: req.session.loggedIn });
+
     });
   } catch (err) {
     console.log(err);
@@ -24,6 +28,7 @@ router.post('/', async (req, res) => {
 
 // Login
 router.post('/login', async (req, res) => {
+  console.log(">>>>>>>>>> POST /login route <<<<<<<<<<<<<");
   try {
     const dbUserData = await User.findOne({
       where: {
@@ -63,9 +68,13 @@ router.post('/login', async (req, res) => {
 
 // Logout
 router.post('/logout', (req, res) => {
+  console.log(">>>>>>>>>> POST /logout route <<<<<<<<<<<<<");
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(204).end();
+      // res.status(204).end();
+      // res.status(204).end().render('home', { loggedIn: req.session.loggedIn });
+      res.status(204).end().render('/', { loggedIn: false });
+
     });
   } else {
     res.status(404).end();

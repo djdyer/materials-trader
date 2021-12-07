@@ -5,10 +5,10 @@ const { Material, Listing, User} = require('../models')
 // Import the custom middleware
 const withAuth = require('../utils/auth')
 
-// GET homepage
+// get homepage
 router.get('/', async (req, res) => {
   try {
-    console.log('>>>>>>>>>> / home route <<<<<<<<<<<<<<<<<')
+    console.log('>>>>>>>>>> GET / home route <<<<<<<<<<<<<<<<<')
 
         const postData = await Listing.findAll({
           include: [
@@ -36,20 +36,21 @@ console.log(listings)
     console.log(err)
     res.status(500).json(err)
   }
-})
+});
+
 router.get('/listing', withAuth, async (req, res) => {
+  console.log('>>>>>>>>>> GET /listing route <<<<<<<<<<<<<<<<<')
   try {
-    console.log(req.session.user_id)
+    console.log("session.user_id:",req.session.user_id)
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Listing }],
     });
-console.log(userData)
+console.log("userData:",userData)
     const users = userData.get({ plain: true });
     console.log(users)
     res.render('listing', {
-      
       ...users,
       loggedIn: req.session.loggedIn
     });
@@ -60,17 +61,9 @@ console.log(userData)
   }
 });
 
-
-
-
-
-
-
-
-
 // User clicks on profile without Auth, must first login
 router.get('/login', (req, res) => {
-  console.log('>>>>>>>>>>>>>>> /login redirect route <<<<<<<<<<<<<<<<<<')
+  console.log('>>>>>>>>>>>>>>> GET /login redirect to /profile route <<<<<<<<<<<<<<<<<<')
   if (req.session.loggedIn) {
     res.redirect('/profile')
     return
@@ -79,17 +72,19 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
-  console.log('>>>>>>>>>>>>>>> /login redirect route <<<<<<<<<<<<<<<<<<')
+  console.log('>>>>>>>>>>>>>>> GET /signup redirect to /profile route <<<<<<<<<<<<<<<<<<')
   if (req.session.loggedIn) {
-    res.redirect('/profile')
-    return
+    res.redirect('/profile');
   }
-  res.render('signup')
+  //   res.redirect('/profile')
+  //   return
+  // }
+  res.render('signup');
 });
 
 router.get('/profile', withAuth, async (req, res) => {
   try {
-    console.log('>>>>>>>>>> / profile route <<<<<<<<<<<<<<<<<')
+    console.log('>>>>>>>>>> GET / profile route <<<<<<<<<<<<<<<<<')
 
         const postData = await Listing.findAll({
           include: [
