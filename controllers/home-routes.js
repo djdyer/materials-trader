@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Material, Post } = require('../model')
+const { Material, Listing } = require('../models')
 // Import the custom middleware
 const withAuth = require('../utils/auth')
 
