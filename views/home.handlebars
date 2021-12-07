@@ -1,9 +1,12 @@
-{{#each listings as |listing|}}
-<a href="/listing/{{id}}"> 
+
+<h1>we got here</h1>
+{{#each posts as |post|}}
 <section>
-  <div class="listing_header">
-    <h3 id="material">{{listing.material}}</h3>
-    <h3 id="city">{{listing.city}}</h3>
+  <div class="post_header">
+    <h3 id="material">{{post.material.type}}</h3>
+    <h3 id="city">{{post.location}}</h3>
+
+
   </div>
   <div class="content_body">
     <img class="post_image" src="/images/cardboard-upload.jpeg"/>
@@ -11,12 +14,13 @@
     <h4 id="description">{{listing.description}}</h4>
     <h4 id="amount">{{listing.amount}}</h4>
     <div class="user_date">
-      <h5 id="username">{{listing.username}}</h5>
-      <h5 id="date">{{format_date listing.date_created}}</h5>
+      <h5 id="username">{{post.user.username}}</h5>
+      <h5 id="date">{{format_date post.createdAt}}</h5>
     </div>
   </div>
 </section>
-</a>
+
+
 {{/each}}
 
  

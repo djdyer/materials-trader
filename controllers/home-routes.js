@@ -1,5 +1,7 @@
 const router = require('express').Router()
-const { Material, Listing } = require('../models')
+
+const { Material, Post, User} = require('../model')
+
 // Import the custom middleware
 const withAuth = require('../utils/auth')
 
@@ -8,20 +10,26 @@ router.get('/', async (req, res) => {
   try {
     console.log('>>>>>>>>>> / home route <<<<<<<<<<<<<<<<<')
 
-    //     const postData = await Post.findAll({
-    //       include: [
-    //         {
-    //           model: Post,
-    //           attributes: ['content'],
-    //         },
-    //       ],
-    //     });
+        const postData = await Post.findAll({
+          include: [
+            {
+              model: User,
+              attributes: ['username'],
+            },
 
-    //     const topics = dbTopicData.map((topic) =>
-    //       topic.get({ plain: true })
-    //     );
+            {
+              model: Material,
+              attributes: ['type'],
+            },
+          ],
+        });
 
-    res.render('home', {
+        const posts = postData.map((topic) =>
+          topic.get({ plain: true })
+        );
+console.log(posts)
+    res.status(200).render('home', {
+      posts,
       loggedIn: req.session.loggedIn,
     })
   } catch (err) {
