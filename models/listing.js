@@ -44,6 +44,10 @@ Listing.init(
         key: "id",
       },
     },
+    contact: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     sequelize,
