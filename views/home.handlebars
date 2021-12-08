@@ -1,7 +1,7 @@
 
 <h1>Welcome {{user.username}}</h1>
 {{#each listings as |listing|}}
-<a id='listing' href="/listing">
+<a id='listing' href="/listing/{{listing.id}}">
 <section>
   <div class="post_header">
     <h3 id="material">{{listing.material.type}}</h3>

@@ -37,21 +37,15 @@ console.log(listings)
     res.status(500).json(err)
   }
 })
-router.get('/listing', withAuth, async (req, res) => {
+router.get('/listing/:id', async (req, res) => {
   try {
-    console.log(req.session.user_id)
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Listing }],
-    });
-console.log(userData)
-    const users = userData.get({ plain: true });
-    console.log(users)
+    const listingData = await Listing.findByPk(req.params.id)
+    const listing = listingData.get({ plain: true });
+    console.log(listing)
     res.render('listing', {
       
-      ...users,
-      loggedIn: req.session.loggedIn
+      listing
     });
   } 
   catch (err) {
