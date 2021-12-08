@@ -27,54 +27,48 @@
   <body>
     <nav>
       <img id='logo' src='/images/logo.png' />
-      <h1>
-        MATERIALS TRADER
-      </h1>
-      <h2>(main.handlebars)</h2>
-      <h2>
-        peer to peer recycling
-      </h2>
+      <h1>MATERIALS TRADER</h1>
+      <h2>peer to peer recycling</h2>
       <div class='buttons'>
-        
-        <button>
-       
-          <img id='home' src='/images/home.png' />
-           <a id='home' href="/">
-          <h3 id='home_text'>
-            HOME
-          </h3>
+
+        {{!-- HOME BUTTON --}}
+        <button id="homeBtn">
+          <a href="/">
+          <img id='home-icon' src='/images/home.png' />
+          <h3 id='home-text'>HOME</h3>
           </a>
-        
         </button>
       
-        <button>
-          <img id='profile' src='/images/profile.png' />
+      {{!-- LOGIN OR PROFILE BUTTON --}}
+        <button id="loginOrProfileBtn">
+          <img id='profile-icon' src='/images/profile.png' />
           {{#if loggedIn}}
             <a href='/profile'>
-              <h3 id='profile_text'>
-                PROFILE
-              </h3>
+              <h3 id='profile-text'>PROFILE</h3>
             </a>
           {{else}}
             <a href='/login'>
-              <h3 id='profile_text'>
-                LOGIN
-              </h3>
+              <h3 id='profile-text'>LOGIN</h3>
             </a>
           {{/if}}
         </button>
-        <button>
-          <img id='search' src='/images/search.png' />
-          <h3 id='search_text'>
-            SEARCH
-          </h3>
+
+        {{!-- SEARCH BUTTON --}}
+        <button id="searchBtn">
+          <a href="/search">
+          <img id='search-icon' src='/images/search.png' />
+          <h3 id='search-text'>SEARCH</h3>
+          </a>
         </button>
+
       </div>
     </nav>
 
+{{!-- BODY TO DISPLAY ALL VIEWS --}}
     <main>
       {{{body}}}
     </main>
+
     {{#if loggedIn}}
       <script src='/js/logout.js'></script>
     {{/if}}
