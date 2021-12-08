@@ -25,8 +25,8 @@ body {
 
 nav {
   position: sticky;
-  top: 100pt;
-  left: 80pt;
+  top: 30pt;
+  left: 50pt;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -98,7 +98,7 @@ h3 {
   color: #e0e2db;
 }
 
-/* Description and Amount */
+/* Post Details */
 h4 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 12pt;
@@ -159,6 +159,14 @@ form:hover {
   text-align: left;
 }
 
+.detail .content_body {
+  padding: 10pt 15pt 20pt 15pt;
+}
+
+.detail .post_title {
+  margin: 10pt auto 5pt auto;
+}
+
 .form_body {
   padding: 15pt;
   display: flex;
@@ -216,16 +224,20 @@ input {
   color: #1a1a1a;
   align-items: top;
   padding-left: 10pt;
-  margin-top: 5pt;
+  width: 100%;
 }
 
-input:focus {
+input:focus,
+select:focus {
   outline-color: rgb(109, 191, 254);
 }
 
 #loginBtn,
 #signupBtn,
-#postBtn {
+#postBtn,
+#createBtn,
+#saveBtn,
+#deleteBtn {
   background-color: rgb(109, 191, 254);
   width: 200px;
   margin-left: 170pt;
@@ -240,8 +252,15 @@ input:focus {
   text-align: left;
 }
 
-#postBtn {
+#postBtn,
+#createBtn,
+#saveBtn,
+#deleteBtn {
   margin: 20pt auto;
+}
+
+#deleteBtn {
+  margin-top: 0;
 }
 
 #loginBtn:hover {
@@ -265,12 +284,15 @@ input:focus {
   margin-bottom: 10pt;
 }
 
-#post_title {
+.post_title {
   color: #2da24e;
   margin-left: 5pt;
 }
 
-#postBtn:hover {
+#postBtn:hover,
+#createBtn:hover,
+#saveBtn:hover,
+#deleteBtn:hover {
   border: 2px solid #2da24e;
 }
 
@@ -280,6 +302,245 @@ input:focus {
 
 .user_posts:hover {
   box-shadow: 0 8px 10px rgb(173, 173, 173);
+}
+
+.create,
+.detail {
+  border: none;
+  margin-top: 60pt;
+  margin-bottom: 40pt;
+}
+
+.login_form {
+  border: none;
+}
+
+select {
+  width: 200px;
+  height: 35px;
+  margin-bottom: 20pt;
+  padding-right: 5pt;
+  cursor: pointer;
+}
+
+textarea {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12pt;
+  font-weight: 100;
+  color: rgb(19, 19, 19);
+  padding: 10pt;
+  resize: none;
+  height: 100px;
+  width: 100%;
+  margin-bottom: 15pt;
+}
+
+textarea:hover,
+textarea:enabled,
+select:enabled {
+  outline-color: rgb(109, 191, 254);
+}
+
+::placeholder {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12pt;
+  font-weight: 100;
+  color: #9f9f9f;
+}
+
+#material-location {
+  height: 40px;
+}
+
+#photo-selection::-webkit-file-upload-button {
+  display: block;
+  content: "Choose photo";
+  background-color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12pt;
+  font-weight: 100;
+  color: #9f9f9f;
+  width: 120px;
+  height: 35px;
+  margin-bottom: 10pt;
+  cursor: pointer;
+  text-align: left;
+  border: 1px solid rgb(114, 114, 114);
+  margin-left: -10pt;
+  border-radius: 2pt;
+}
+
+#post_image {
+  width: 100%;
+  object-fit: contain;
+}
+
+#location-map {
+  position: relative;
+  margin-right: -20px;
+  display: block;
+  float: inline-end;
+  width: 420px;
+}
+
+#material_image_container {
+  background-color: #e0e2db;
+  margin-top: 0;
+}
+
+.detail .content_body {
+  justify-content: space-between;
+  padding-top: 0;
+}
+
+.detail:hover,
+.create:hover,
+.login_form:hover {
+  border: none;
+}
+
+.search {
+  margin-top: 80px;
+}
+
+.content_body .post_title {
+  margin-top: 30px;
+}
+
+.materials-icons {
+  height: 100px;
+}
+
+#search-field {
+  display: flex;
+  flex-direction: row;
+  padding-right: 15px;
+}
+
+.search-button h2:hover {
+  color: #2da24e;
+}
+
+.search-button img {
+  margin-right: 20pt;
+}
+
+.search-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button.search-button {
+  margin-top: 25px;
+}
+
+#plastic-icon {
+  width: 130px;
+  margin-right: 35px;
+}
+
+#glass-icon {
+  width: 130px;
+  margin-right: 35px;
+}
+
+#search-glass {
+  margin-top: 45px;
+}
+
+#aluminum-icon {
+  width: 90px;
+  margin-left: 10px;
+  margin-right: 65px;
+}
+
+#search-aluminum {
+  margin-top: 40px;
+}
+
+#textiles-icon {
+  width: 85px;
+  margin-left: 15px;
+  margin-right: 65px;
+}
+
+#search-textiles {
+  margin-top: 35px;
+}
+
+#cardboard-icon {
+  width: 110px;
+  margin-left: 5px;
+  margin-right: 50px;
+}
+
+#search-cardboard {
+  margin-top: 25px;
+}
+
+#paper-icon {
+  width: 90px;
+  margin-left: 10px;
+  margin-right: 65px;
+}
+
+#search-paper {
+  margin-top: 30px;
+}
+
+#electronics-icon {
+  width: 100px;
+}
+
+#search-electronics {
+  margin-top: 15px;
+}
+
+#batteries-icon {
+  width: 70px;
+  margin-left: 20px;
+  margin-right: 35px;
+}
+
+#search-batteries {
+  margin-top: 40px;
+}
+
+#appliances-icon {
+  width: 70px;
+  margin-left: 20px;
+  margin-right: 35px;
+}
+
+#search-appliances {
+  margin-top: 40px;
+}
+
+#steel-icon {
+  height: 85px;
+  margin-left: 25px;
+  margin-right: 40px;
+}
+
+#search-steel {
+  margin-top: 22px;
+}
+
+#concrete-icon {
+  width: 60px;
+  margin-left: 25px;
+  margin-right: 40px;
+}
+
+#search-concrete {
+  margin-top: 20px;
+}
+
+#oil-icon {
+  width: 50px;
+  margin-left: 25px;
+  margin-right: 50px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -320,6 +581,10 @@ input:focus {
   #your_posts {
     margin-left: -460px;
   }
+
+  .search {
+    margin-top: 20px;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -338,4 +603,38 @@ input:focus {
 
   .user_posts {
     width: 350px;
+  }
+
+  #search-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form_body {
+    align-items: center;
+  }
+
+  #electronics-icon {
+    margin-right: 65px;
+  }
+
+  #batteries-icon {
+    margin-right: 75px;
+  }
+
+  #appliances-icon {
+    margin-right: 75px;
+  }
+
+  #steel-icon {
+    margin-right: 80px;
+  }
+
+  #concrete-icon {
+    margin-right: 80px;
+  }
+
+  #oil-icon {
+    margin-right: 90px;
+  }
 }
