@@ -41,7 +41,19 @@ console.log(listings)
 router.get('/listing/:id', async (req, res) => {
   try {
     // Find the logged in user based on the session ID
-    const listingData = await Listing.findByPk(req.params.id)
+    const listingData = await Listing.findByPk(req.params.id,{
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+
+        {
+          model: Material,
+          attributes: ['type'],
+        },
+      ],
+    }  )
     const listing = listingData.get({ plain: true });
     console.log(listing)
     res.render('listing', {
@@ -85,6 +97,31 @@ router.get('/editlisting/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+
+//delete a specific listinglisting
+router.delete('listing/:id', withAuth, async (req, res) => {
+  try {
+    const listingData = await Listing.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!listingData) {
+      res.status(404).json({ message: 'No listing found with this id!' });
+      return;
+    }
+
+    res.status(200).json(listingData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 // User clicks on profile without Auth, must first login
 router.get('/login', (req, res) => {

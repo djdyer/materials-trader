@@ -1,15 +1,15 @@
 <h2>
   (listing.handlebars)
 </h2>
-{{#if listings.length}}
-  {{#each listings as |listing|}}
+  <button type ="button" class="deleteBtn">DELETE</button>
+  
     <section class='detail'>
       <div class='title_header'>
         <h3 id='material'>
-          Material
+        {{listing.material.type}}
         </h3>
         <h3 id='city'>
-          CITY
+         {{listing.location}}
         </h3>
       </div>
       <div id='material_image_container'>
@@ -48,7 +48,8 @@
         </div>
       </div>
     </section>
-  {{/each}}
-{{/if}}
+
+    <script src="./js/delete.js"></script>
+
 
 
