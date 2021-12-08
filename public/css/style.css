@@ -37,28 +37,54 @@ main {
   margin-left: 120pt;
 }
 
-#home,
-#profile,
-#search {
+a,
+li {
+  display: flex;
+  flex-direction: row;
+  font-family: "Amatic SC", cursive;
+  font-size: 22pt;
+  list-style: none;
+  text-decoration: none;
+  color: #2da24e;
+  align-items: center;
+}
+
+#welcome {
+  margin-top: 30px;
+}
+
+#home-icon,
+#profile-icon,
+#search-icon {
   width: 35px;
   margin: 15pt;
 }
 
-#profile {
-  margin-left: 25pt;
+#home-icon {
+  margin-right: 25pt;
 }
 
-#search {
+#profile-icon {
   margin-left: 20pt;
 }
 
-#home_text {
+#search-icon {
+  margin-left: 25pt;
+  margin-right: 25pt;
+}
+
+#home-text:hover,
+#profile-text:hover,
+#search-text:hover {
   color: #2da24e;
 }
 
-#profile_text:hover,
-#search_text:hover {
-  color: #2da24e;
+#login-text {
+  margin-left: 0;
+}
+
+#profile-text {
+  padding-left: 15pt;
 }
 
 button {
@@ -76,6 +102,7 @@ button {
   flex-direction: column;
   align-items: center;
 }
+
 
 /* Lettermark */
 h1 {
@@ -119,6 +146,7 @@ h5 {
 section {
   width: 700px;
   margin: 40pt;
+  margin-bottom: 0;
   border-radius: 8pt;
   border: 2px solid transparent;
   box-shadow: 0 8px 35px rgb(19, 19, 19);
@@ -187,21 +215,11 @@ form:hover {
   border-radius: 0 0 8pt 8pt;
 }
 
-a,
-li {
-  font-family: "Amatic SC", cursive;
-  font-size: 22pt;
-  list-style: none;
-  text-decoration: none;
-  color: #2da24e;
-}
-
 /* IMAGE displayed on home page listing brief */
 .post_image {
-  width: 150px;
+  width: 200px;
+  height: auto;
   border-radius: 0 0 0 7pt;
-  /* background-size: cover;
-  background-position: center; */
 }
 
 .content {
@@ -210,6 +228,10 @@ li {
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+}
+
+#amount-text {
+  margin-top: 10pt;
 }
 
 .user_date {
@@ -266,7 +288,8 @@ select:focus {
   margin-top: 0;
 }
 
-#loginBtn:hover {
+#loginBtn:hover,
+#signupBtn:hover {
   border: 2px solid #2da24e;
 }
 
@@ -311,7 +334,7 @@ select:focus {
 .detail {
   border: none;
   margin-top: 60pt;
-  margin-bottom: 40pt;
+  /* margin-bottom: 100pt; */
 }
 
 .login_form {
@@ -374,12 +397,16 @@ select:enabled {
 }
 
 /* IMAGE displayed in listing detail view */
-#post_image {
+#post-image {
   width: 100%;
-  height: 400px;
+  height: auto;
   object-fit: contain;
   /* background-size: cover;
   background-position: center; */
+}
+#contact {
+  display: flex;
+  flex-direction: column;
 }
 
 #location-map {
@@ -388,6 +415,7 @@ select:enabled {
   display: block;
   float: inline-end;
   width: 420px;
+  margin-left: 15px;
 }
 
 #material_image_container {
@@ -573,10 +601,6 @@ button.search-button {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-  }
-
-  section {
-    width: 600px;
   }
 
   form,

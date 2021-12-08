@@ -4,20 +4,23 @@
     "description": "I have a pallet of corrugated cardboard material from my job's warehouse out back. Whoever gets here first!",
     "amount": "1 pallet",
     "location": "Atlanta",
-    "user_id": 1
+    "user_id": 1,
+    "contact": "sally.J1971@gmail.com"
   },
   {
     "material_id": 7,
     "description": "I want to giveaway my old desktop computer, it kinda works, might have a virus or three",
     "amount": "1 personal computer",
     "location": "Alpharetta",
-    "user_id": 2
+    "user_id": 2,
+    "contact": "213-555-0168"
   },
   {
     "material_id": 3,
     "description": "I have a bunch of cans that still haven't been picked up by my recycling company, up for grabs, probably worth something.",
     "amount": "2 trash bags",
     "location": "Toccoa",
-    "user_id": 3
+    "user_id": 3,
+    "contact": "ag1990@aol.com"
   }
 ]
