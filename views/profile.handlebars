@@ -1,27 +1,26 @@
-<div class='dash'>
-  <div class='title_header'>
-    <h3>PROFILE</h3>
-    <a id='logout' href='/home'>
-      <h3>LOGOUT</h3>
-    </a>
-  </div>
-  <div class='dash_body'>
-    <div id='your_posts'>
-      <h4>Your posts:</h4>
+<div class="dash">
+    <div class="title_header">
+        <h3>PROFILE</h3>
+        <p>(profile.handlebars)</p>
+        <a id="logout" href="/home"><h3>LOGOUT</h3></a>
     </div>
-    {{#each listings as |listing|}}
-      <a href="/editlisting/{{id}}">
-        <div class='user_posts'>
-          <h3 class='post_title'>
-            {{listing.material.type}}
-          </h3>
-          <h5 id='post_date'>
-            {{format_date listing.createdAt}}
-          </h5>
+    <div class="dash_body">
+        <div id="your_posts">
+        <h4>Your posts:</h4>
         </div>
-      </a>
-    {{/each}}
-    <button id='postBtn'>
+{{#each listings as |listing|}}
+        <div class="user_posts">
+        <h3 class="post_title">{{listing.material.type}}</h3>
+        <h5 id="post_date">{{format_date listing.createdAt}}</h5>
+        </div>
+{{/each}}
+
+        {{!-- <button type="submit" href="/create" id="postBtn"><h3>POST RECYCLEABLES</h3></button> --}}
+        <form class="create" action="/newlisting" method="get" id="createform">
+          <button type="submit" value="Submit" id="createBtn">LIST RECYCLABLES</button>
+        </form>
+</div> 
+  <button id='postBtn'>
       <h3>
         POST RECYCLEABLES
       </h3>
@@ -29,3 +28,4 @@
   </div>
 </div>
 <script src='js/create.js'></script>
+

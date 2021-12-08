@@ -1,18 +1,20 @@
+<h2>
+  (listing.handlebars)
+</h2>
+  <button type ="button" class="deleteBtn">DELETE</button>
+  
     <section class='detail'>
       <div class='title_header'>
         <h3 id='material'>
-          {{listing.material.type}}
+        {{listing.material.type}}
         </h3>
         <h3 id='city'>
-          {{listing.location}}
+         {{listing.location}}
         </h3>
       </div>
-
-      {{!-- This will only work for seeded listings! --}}
       <div id='material_image_container'>
-        <img id='post-image' src="/images/{{listing.material.type}}-upload.jpeg"/>
+        <img id='post_image' src='/images/cardboard-upload.jpeg' />
       </div>
-
       <div class='content_body'>
         <div>
           <h3 class='post_title'>
@@ -36,10 +38,10 @@
           <h3 class='post_title'>
             CONTACT:
           </h3>
-          <div id='contact'>
-            <h4>{{listing.user.username}}</h4>
-            <h4>{{listing.contact}}</h4>
-          </div>
+          <h4 id='contact'>
+            {{listing.user.username}}
+            {{listing.contact}}
+          </h4>
         </div>
         <div>
           <img id='location-map' src='/images/map_test.png' />
@@ -47,5 +49,4 @@
       </div>
     </section>
 
-
-
+    <script src="./js/delete.js"></script>

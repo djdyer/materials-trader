@@ -27,7 +27,7 @@ async function createListing(event) {
   id="post_image"
 
   if (material && photo && description && amount && location && contact) {
-    const response = await fetch(`/api/listing/create`, {
+    const response = await fetch('/api/users/createlisting', {
       method: 'POST',
       body: JSON.stringify({
         material,
