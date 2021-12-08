@@ -1,13 +1,14 @@
 <h2>(listing.handlebars)</h2>
 {{#if listings.length}}
 {{#each listings as |listing|}}
+
 <section class='detail'>
   <div class='title_header'>
     <h3 id='material'>
       Material
     </h3>
     <h3 id='city'>
-      CITY
+      CITY{{listing.location}}
     </h3>
   </div>
   <div id='material_image_container'>
@@ -46,5 +47,3 @@
     </div>
   </div>
 </section>
-{{/each}}
-{{/if}}
