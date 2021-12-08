@@ -88,7 +88,7 @@ router.post('/updatelisting/:id', async (req, res) => {
 
     const listing = dbListingData.get({ plain: true });
     console.log("listing:",listing);
-    res.status(200).render('edit', {
+    res.status(200).render('home', {
       listing,
       loggedIn: req.session.loggedIn,
     });
@@ -104,7 +104,7 @@ router.post('/createlisting', async (req, res) => {
   console.log("req.body",req.body)
   try {
     let dbListingData = await Listing.create({
-      material_id: 10, // req.body.material_id,  // will have to get material_id
+      material_id: req.body.material_id,
       description: req.body.description,
       amount: req.body.amount,
       location: req.body.location,

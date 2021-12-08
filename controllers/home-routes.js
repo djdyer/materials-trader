@@ -23,8 +23,8 @@ router.get('/', async (req, res) => {
           ],
         });
 
-        const listings = postData.map((topic) =>
-          topic.get({ plain: true })
+        const listings = postData.map((listing) =>
+          listing.get({ plain: true })
         );
 console.log(listings)
     res.status(200).render('home', {
@@ -81,12 +81,6 @@ router.get('/listing/:id', async (req, res) => {
     }  )
     const listing = listingData.get({ plain: true });
  
-    console.log("listing:",listing);
-
-    console.log("listing.user_id:",listing.user_id);
-    console.log("listing.user_id:",listing.user_id);
-    console.log("listing.user_id:",listing.user_id);
-
     if (req.session.loggedIn && (req.session.user_id == listing.user_id)) {
       res.render('edit', { listing, loggedIn: req.session.loggedIn });
     } else {
@@ -152,9 +146,21 @@ router.delete('listing/:id', withAuth, async (req, res) => {
 });
 
 // Get form to create a new listing
-router.get('/newlisting', (req, res) => {
+router.get('/newlisting', async (req, res) => {
   console.log('>>>>>>>>>>>>>>> GET /newlisting route <<<<<<<<<<<<<<<<<<');
-  res.render('create');
+  // res.render('create');
+
+  // Get a list of legitimate materials
+  const dbMaterialData = await Material.findAll();
+
+  const materials = dbMaterialData.map((material) =>
+    material.get({ plain: true })
+  );
+
+  console.log(materials);
+  res.status(200).render('create', {materials: materials,
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 

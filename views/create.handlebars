@@ -6,10 +6,19 @@
         <div class="form_body">
           <div>
             <h3 class="post_title">MATERIAL:</h3>
-            <select
-              placeholder="choose material"
-              id="material-selection"
-            ></select>
+            <select placeholder="choose material" name="material-selection" id="material-selection">
+              <option value="{{materials.[0].id}}">{{materials.[0].type}}</option>
+              <option value="{{materials.[1].id}}">{{materials.[1].type}}</option>
+              <option value="{{materials.[2].id}}">{{materials.[2].type}}</option>
+              <option value="{{materials.[3].id}}">{{materials.[3].type}}</option>
+              <option value="{{materials.[4].id}}">{{materials.[4].type}}</option>
+              <option value="{{materials.[5].id}}">{{materials.[5].type}}</option>
+              <option value="{{materials.[6].id}}">{{materials.[6].type}}</option>
+              <option value="{{materials.[7].id}}">{{materials.[7].type}}</option>
+              <option value="{{materials.[8].id}}">{{materials.[8].type}}</option>
+              <option value="{{materials.[9].id}}">{{materials.[9].type}}</option>
+              <option value="{{materials.[10].id}}">{{materials.[10].type}}</option>
+            </select>
             <h3 class="post_title">PHOTO:</h3>
             <input type="file" id="photo-selection"
             ></input>
@@ -39,15 +48,30 @@
           </button>
         </div>
       </form>
-      <script src="../js/create.js"> </script>
+      <script src="../../js/create.js"> </script>
 
       <p>vvvvvvvvvvvvvvvvvv Test area vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
       <div class="form_body">
+        <h3>materials:{{materials.[0].type}}</h3>
       <form class="create" action="/api/users/createlisting" method="post" id="testform">
         <h1>Test area</h1>
         <textarea id="description" name="description" rows="4" cols="50" placeholder="New description goes here...">
         </textarea>
-     <input type="hidden" name='material_type' value='Oil'>
+        <select placeholder="choose material" name="material_id" id="material-selection">
+          <option value="{{materials.[0].id}}">{{materials.[0].type}}</option>
+          <option value="{{materials.[1].id}}">{{materials.[1].type}}</option>
+          <option value="{{materials.[2].id}}">{{materials.[2].type}}</option>
+          <option value="{{materials.[3].id}}">{{materials.[3].type}}</option>
+          <option value="{{materials.[4].id}}">{{materials.[4].type}}</option>
+          <option value="{{materials.[5].id}}">{{materials.[5].type}}</option>
+          <option value="{{materials.[6].id}}">{{materials.[6].type}}</option>
+          <option value="{{materials.[7].id}}">{{materials.[7].type}}</option>
+          <option value="{{materials.[8].id}}">{{materials.[8].type}}</option>
+          <option value="{{materials.[9].id}}">{{materials.[9].type}}</option>
+          <option value="{{materials.[10].id}}">{{materials.[10].type}}</option>
+        </select>
+
+     {{!-- <input type="hidden" name='material_id' value='#material-selection'> --}}
      <input type="hidden" name='amount' value='1 barrel'>
      <input type="hidden" name='location' value='South of Mason-Dixon'>
     </form>

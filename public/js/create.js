@@ -10,7 +10,7 @@ async function listingFormHandler(event) {
   const contact = document.querySelector('#material-contact').value
 
   if (material && photo && description && amount && location && contact) {
-    const response = await fetch(`/api/listing/create`, {
+    const response = await fetch('/api/users/createlisting', {
       method: 'POST',
       body: JSON.stringify({
         material,
