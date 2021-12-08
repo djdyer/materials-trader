@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Listing } = require('../../models');
+const { User, Listing, Material } = require('../../models');
 
 // Sign up
 router.post('/', async (req, res) => {
@@ -93,6 +93,46 @@ router.post('/updatelisting/:id', async (req, res) => {
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// Create listing
+router.post('/createlisting', async (req, res) => {
+  console.log(">>>>>>>>>> POST /createlisting route <<<<<<<<<<<<<");
+  console.log("req.body",req.body)
+  try {
+    let dbListingData = await Listing.create({
+      material_id: 10, // req.body.material_id,  // will have to get material_id
+      description: req.body.description,
+      amount: req.body.amount,
+      location: req.body.location,
+      user_id: req.session.user_id
+    });
+
+    dbListingData = await Listing.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+        {
+          model: Material,
+          attributes: ['type'],
+        },
+      ],
+    });
+
+    const listings = dbListingData.map((listing) =>
+      listing.get({ plain: true })
+    );
+console.log(listings)
+res.status(200).render('home', {
+  listings,
+  loggedIn: req.session.loggedIn,
+})
+} catch (err) {
     console.log(err);
     res.status(500).json(err);
   }

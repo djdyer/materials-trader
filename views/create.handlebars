@@ -39,4 +39,17 @@
           </button>
         </div>
       </form>
-      <script src="/js/create.js"> </script>
+      <script src="../js/create.js"> </script>
+
+      <p>vvvvvvvvvvvvvvvvvv Test area vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
+      <div class="form_body">
+      <form class="create" action="/api/users/createlisting" method="post" id="testform">
+        <h1>Test area</h1>
+        <textarea id="description" name="description" rows="4" cols="50" placeholder="New description goes here...">
+        </textarea>
+     <input type="hidden" name='material_type' value='Oil'>
+     <input type="hidden" name='amount' value='1 barrel'>
+     <input type="hidden" name='location' value='South of Mason-Dixon'>
+    </form>
+    <button type="submit" form="testform" value="Submit">TEST IT</button>
+      </div>

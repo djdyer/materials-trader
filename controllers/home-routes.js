@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
               model: User,
               attributes: ['username'],
             },
-
             {
               model: Material,
               attributes: ['type'],
@@ -100,7 +99,6 @@ router.get('/listing/:id', async (req, res) => {
   }
 });
 
-
 // GET the form to edit a listing
 // Use the custom middleware before allowing the user to access this route
 router.get('/editlisting/:id', withAuth, async (req, res) => {
@@ -152,6 +150,13 @@ router.delete('listing/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// Get form to create a new listing
+router.get('/newlisting', (req, res) => {
+  console.log('>>>>>>>>>>>>>>> GET /newlisting route <<<<<<<<<<<<<<<<<<');
+  res.render('create');
+});
+
 
 // User clicks on profile without Auth, must first login
 router.get('/login', (req, res) => {
