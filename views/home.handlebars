@@ -1,8 +1,10 @@
 
 <h1>Welcome {{user.username}}</h1>
+<h2>(home.handlebars)</h2>
 {{#each listings as |listing|}}
-<a id='listing' href="/listing">
+<a id='listing' href="/editlisting/{{listing.id}}">
 <section>
+  <h2>listing id: {{listing.id}}</h2>
   <div class="post_header">
     <h3 id="material">{{listing.material.type}}</h3>
     <h3 id="city">{{listing.location}}</h3>
@@ -19,8 +21,6 @@
   </div>
 </section>
 </a>
-
-
 {{/each}}
 
  

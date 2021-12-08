@@ -53,5 +53,11 @@
     "id": 11,
     "type": "Batteries",
     "is_hazardous": "true"
+  },
+  {
+    "id": 12,
+    "type": "Textiles",
+    "is_hazardous": "false"
   }
+
 ]
