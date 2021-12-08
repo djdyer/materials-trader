@@ -1,49 +1,54 @@
-<h2>(listing.handlebars)</h2>
+<h2>
+  (listing.handlebars)
+</h2>
 {{#if listings.length}}
-{{#each listings as |listing|}}
+  {{#each listings as |listing|}}
+    <section class='detail'>
+      <div class='title_header'>
+        <h3 id='material'>
+          Material
+        </h3>
+        <h3 id='city'>
+          CITY
+        </h3>
+      </div>
+      <div id='material_image_container'>
+        <img id='post_image' src='/images/cardboard-upload.jpeg' />
+      </div>
+      <div class='content_body'>
+        <div>
+          <h3 class='post_title'>
+            DESCRIPTION:
+          </h3>
+          <h4 id='description'>
+            {{listing.description}}
+          </h4>
+          <h3 class='post_title'>
+            AMOUNT:
+          </h3>
+          <h4 id='amount'>
+            {{listing.amount}}
+          </h4>
+          <h3 class='post_title'>
+            LOCATION:
+          </h3>
+          <h4 id='location'>
+            {{listing.location}}
+          </h4>
+          <h3 class='post_title'>
+            CONTACT:
+          </h3>
+          <h4 id='contact'>
+            {{listing.user.username}}
+            {{listing.contact}}
+          </h4>
+        </div>
+        <div>
+          <img id='location-map' src='/images/map_test.png' />
+        </div>
+      </div>
+    </section>
+  {{/each}}
+{{/if}}
 
-<section class='detail'>
-  <div class='title_header'>
-    <h3 id='material'>
-      Material
-    </h3>
-    <h3 id='city'>
-      CITY{{listing.location}}
-    </h3>
-  </div>
-  <div id='material_image_container'>
-    <img id='post_image' src='/images/cardboard-upload.jpeg' />
-  </div>
-  <div class='content_body'>
-    <div>
-      <h3 class='post_title'>
-        {{listing.description}}
-        DESCRIPTION:
-      </h3>
-      <h4 id='description'>
-        Material Description
-      </h4>
-      <h3 class='post_title'>
-        AMOUNT: {{listing.amount}}
-      </h3>
-      <h4 id='amount'>
-        Material Amount
-      </h4>
-      <h3 class='post_title'>
-        LOCATION:
-      </h3>
-      <h4 id='location'>
-        Address or City
-      </h4>
-      <h3 class='post_title'>
-        CONTACT:
-      </h3>
-      <h4 id='contact'>
-        Contact details
-      </h4>
-    </div>
-    <div>
-      <img id='location-map' src='/images/map_test.png' />
-    </div>
-  </div>
-</section>
+
