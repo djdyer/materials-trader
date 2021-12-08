@@ -62,6 +62,9 @@ console.log("userData:",userData)
 });
 
 router.get('/listing/:id', async (req, res) => {
+  console.log(">>>>>>>>>>>>>>> GET route to /listing/:id <<<<<<<<<<<<<<<");
+  console.log("session",req.session);
+  console.log("user_id",req.session.user_id);
   try {
     // Find the logged in user based on the session ID
     const listingData = await Listing.findByPk(req.params.id,{
@@ -78,10 +81,14 @@ router.get('/listing/:id', async (req, res) => {
       ],
     }  )
     const listing = listingData.get({ plain: true });
-    console.log(listing)
+ 
     console.log("listing:",listing);
 
-    if (req.session.loggedIn) {
+    console.log("listing.user_id:",listing.user_id);
+    console.log("listing.user_id:",listing.user_id);
+    console.log("listing.user_id:",listing.user_id);
+
+    if (req.session.loggedIn && (req.session.user_id == listing.user_id)) {
       res.render('edit', { listing, loggedIn: req.session.loggedIn });
     } else {
       res.render('listing', { listing, loggedIn: req.session.loggedIn });
