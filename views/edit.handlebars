@@ -1,26 +1,30 @@
-<form class="create">
+<form class="create" action="/api/users/updatelisting{{id}}" method="post">
         <div class="title_header">
           <h3>EDIT LISTING</h3>
+          <h2>(edit.handlebars)</h2>
+
+
         </div>
         <div class="form_body">
           <div>
             <h3 class="post_title">MATERIAL:</h3>
-            <select id="#material-selection"
+            <select id="material-selection"
             > {{listing.material}}</select>
             <h3 class="post_title">PHOTO:</h3>
-            <input type="file" id="#photo-selection"
+            <input type="file" id="photo-selection"
             > {{listing.photo}}</input>
             <h3 class="post_title">DESCRIPTION:</h3>
-            <textarea id="#material-description"
+            <textarea id="material-description"
             >{{listing.description}}</textarea>
             <h3 class="post_title">AMOUNT:</h3>
-            <textarea id="#material-amount"
+            <textarea id="material-amount"
             >{{listing.amount}}</textarea>
             <h3 class="post_title">LOCATION:</h3>
-            <input id="#material-location"
-            >{{listing.location}}</input>
+            <input id="material-location" value="{{listing.location}}">
+            Location
+            </input>
             <h3 class="post_title">CONTACT:</h3>
-            <input id="#material-contact"
+            <input id="material-contact"
             >{{listing.contact}}</input>
           </div>
           <button type="submit" id="saveBtn">
@@ -31,3 +35,22 @@
           </button>
         </div>
       </form>
+
+      <div class="form_body">
+    <p>{{listing.material.type}}</p>
+    <p>{{listing.description}}</p>
+    <p>{{listing.amount}}</p>
+    <p>{{listing.location}}</p>
+    <p>{{listing.user.username}}</p>
+        <form class="create" action="/api/users/updatelisting/{{listing.id}}" method="post" id="testform">
+        <h1>Test area</h1>
+              <textarea id="description" name="description" rows="4" cols="50">
+        {{listing.description}}
+      </textarea>
+     <input type="hidden" name='listing_id' value='{{listing.id}}'>
+     <input type="hidden" name='material_type' value='{{listing.material.type}}'>
+     <input type="hidden" name='amount' value='{{listing.amount}}'>
+     <input type="hidden" name='location' value='{{listing.location}}'>
+    </form>
+    <button type="submit" form="testform" value="Submit">TEST IT</button>
+      </div>

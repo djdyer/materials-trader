@@ -5,10 +5,10 @@ const { Material, Listing, User} = require('../models')
 // Import the custom middleware
 const withAuth = require('../utils/auth')
 
-// GET homepage
+// get homepage
 router.get('/', async (req, res) => {
   try {
-    console.log('>>>>>>>>>> / home route <<<<<<<<<<<<<<<<<')
+    console.log('>>>>>>>>>> GET / home route <<<<<<<<<<<<<<<<<')
 
         const postData = await Listing.findAll({
           include: [
@@ -37,6 +37,7 @@ console.log(listings)
     res.status(500).json(err)
   }
 })
+
 router.get('/listing/:id', async (req, res) => {
   try {
     // Find the logged in user based on the session ID
@@ -44,7 +45,7 @@ router.get('/listing/:id', async (req, res) => {
     const listing = listingData.get({ plain: true });
     console.log(listing)
     res.render('listing', {
-      
+     
       listing
     });
   } 
@@ -54,17 +55,40 @@ router.get('/listing/:id', async (req, res) => {
   }
 });
 
+// GET the form to edit a listing
+// Use the custom middleware before allowing the user to access this route
+router.get('/editlisting/:id', withAuth, async (req, res) => {
+  console.log(">>>>>>>>>>>>>>> /editlisting/",req.params.id,"GET route <<<<<<<<<<<<<<<<")  
+  try {
+    const dbListingData = await Listing.findByPk(req.params.id, {
+      include: [
+        {
+          model: Material,
+          attributes: [
+            'type'
+          ],
+        },
+        {
+          model: User,
+          attributes: [
+            'username'
+          ],
+        },
+      ],
+    });
 
-
-
-
-
-
-
+    const listing = dbListingData.get({ plain: true });
+    console.log("listing:",listing);
+    res.render('edit', { listing, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // User clicks on profile without Auth, must first login
 router.get('/login', (req, res) => {
-  console.log('>>>>>>>>>>>>>>> /login redirect route <<<<<<<<<<<<<<<<<<')
+  console.log('>>>>>>>>>>>>>>> GET /login redirect to /profile route <<<<<<<<<<<<<<<<<<')
   if (req.session.loggedIn) {
     res.redirect('/profile')
     return
@@ -73,17 +97,20 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
-  console.log('>>>>>>>>>>>>>>> /login redirect route <<<<<<<<<<<<<<<<<<')
+  console.log('>>>>>>>>>>>>>>> GET /signup redirect to /profile route <<<<<<<<<<<<<<<<<<')
   if (req.session.loggedIn) {
-    res.redirect('/profile')
-    return
+
+
   }
-  res.render('signup')
+  //   res.redirect('/profile')
+  //   return
+  // }
+  res.render('signup');
 });
 
 router.get('/profile', withAuth, async (req, res) => {
   try {
-    console.log('>>>>>>>>>> / profile route <<<<<<<<<<<<<<<<<')
+    console.log('>>>>>>>>>> GET / profile route <<<<<<<<<<<<<<<<<')
 
         const postData = await Listing.findAll({
           include: [
