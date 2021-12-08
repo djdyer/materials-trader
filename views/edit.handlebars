@@ -48,6 +48,9 @@
         {{listing.description}}
       </textarea>
      <input type="hidden" name='listing_id' value='{{listing.id}}'>
+     <input type="hidden" name='material_type' value='{{listing.material.type}}'>
+     <input type="hidden" name='amount' value='{{listing.amount}}'>
+     <input type="hidden" name='location' value='{{listing.location}}'>
     </form>
     <button type="submit" form="testform" value="Submit">TEST IT</button>
       </div>
