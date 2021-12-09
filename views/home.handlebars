@@ -1,19 +1,24 @@
-<h1>Welcome {{user.username}}</h1>
-<h2>(home.handlebars)</h2>
+<div id="welcome">
+  <h1>Welcome {{user.username}}</h1>
+</div>
 {{#each listings as |listing|}}
-{{!-- <a id='listing' href="/editlisting/{{listing.id}}"> --}}
 <a id='listing' href="/listing/{{listing.id}}">
 <section>
-  <h2>listing id: {{listing.id}}</h2>
   <div class="post_header">
     <h3 id="material">{{listing.material.type}}</h3>
     <h3 id="city">{{listing.location}}</h3>
   </div>
   <div class="content_body">
-    <img class="post_image" src="/images/cardboard-upload.jpeg"/>
+    <img class="post_image" src="/images/{{listing.material.type}}-upload.jpeg"/>
     <div class="content">
-    <h4 id="description">{{listing.description}}</h4>
-    <h4 id="amount">{{listing.amount}}</h4>
+      <div>
+        <h4><b>Description:</b></h4>
+        <h4 id="description">{{listing.description}}</h4>
+      </div>
+      <div>
+        <h4 id="amount-text"><b>Amount:</b></h4>
+        <h4 id="amount">{{listing.amount}}</h4>
+      </div>
     <div class="user_date">
       <h5 id="username">{{listing.user.username}}</h5>
       <h5 id="date">{{format_date listing.createdAt}}</h5>

@@ -1,8 +1,3 @@
-<h2>
-  (listing.handlebars)
-</h2>
-  <button type ="button" class="deleteBtn">DELETE</button>
-  
     <section class='detail'>
       <div class='title_header'>
         <h3 id='material'>
@@ -13,7 +8,7 @@
         </h3>
       </div>
       <div id='material_image_container'>
-        <img id='post_image' src='/images/cardboard-upload.jpeg' />
+        <img id='post-image' src='/images/{{listing.material.type}}-upload.jpeg' />
       </div>
       <div class='content_body'>
         <div>
@@ -38,10 +33,10 @@
           <h3 class='post_title'>
             CONTACT:
           </h3>
-          <h4 id='contact'>
-            {{listing.user.username}}
-            {{listing.contact}}
-          </h4>
+          <div id='contact'>
+            <h4><b>{{listing.user.username}}</b></h4>
+            <h4>{{listing.contact}}</h4>
+          </div>
         </div>
         <div>
           <img id='location-map' src='/images/map_test.png' />
