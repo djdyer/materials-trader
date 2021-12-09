@@ -50,7 +50,7 @@ li {
 }
 
 #welcome {
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 #home-icon,
@@ -61,7 +61,7 @@ li {
 }
 
 #home-icon {
-  margin-right: 25pt;
+  margin-right: 28pt;
 }
 
 #profile-icon {
@@ -414,8 +414,10 @@ select:enabled {
   margin-right: -20px;
   display: block;
   float: inline-end;
-  width: 420px;
+  height: 400px;
+  width: auto;
   margin-left: 15px;
+  border-radius: 0 0 8pt 0;
 }
 
 #material_image_container {
