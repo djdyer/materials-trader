@@ -108,7 +108,8 @@ router.post('/createlisting', async (req, res) => {
       description: req.body.description,
       amount: req.body.amount,
       location: req.body.location,
-      user_id: req.session.user_id
+      user_id: req.session.user_id,
+      contact: req.body.contact
     });
 
     dbListingData = await Listing.findAll({
@@ -137,6 +138,59 @@ res.status(200).render('home', {
     res.status(500).json(err);
   }
 });
+
+
+//delete listing
+router.post('/deletelisting/:id', async (req, res) => {
+  try {
+    const listingData = await Listing.destroy({
+      where: {
+        id: req.params.id
+       
+      },
+    });
+
+    if (!listingData) {
+      res.status(404).json({ message: 'No listing found with this id!' });
+      return;
+    }
+
+    dbListingData = await Listing.findAll({
+
+      where: {
+        user_id: req.session.user_id
+       
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+        {
+          model: Material,
+          attributes: ['type'],
+        },
+      ],
+    });
+
+    const listings = dbListingData.map((listing) =>
+      listing.get({ plain: true })
+    );
+console.log(listings)
+
+    res.status(200).render('profile', {
+      listings,
+      loggedIn: req.session.loggedIn,
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
+
+
 
 // Logout
 router.post('/logout', (req, res) => {

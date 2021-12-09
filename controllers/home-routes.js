@@ -137,25 +137,6 @@ router.get('/editlisting/:id', withAuth, async (req, res) => {
 });
 
 //delete a specific listing
-router.delete('listing/:id', withAuth, async (req, res) => {
-  try {
-    const listingData = await Listing.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
-
-    if (!listingData) {
-      res.status(404).json({ message: 'No listing found with this id!' });
-      return;
-    }
-
-    res.status(200).json(listingData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 // Get form to create a new listing
 router.get('/newlisting', async (req, res) => {
@@ -203,10 +184,17 @@ router.get('/profile', withAuth, async (req, res) => {
     console.log('>>>>>>>>>> GET / profile route <<<<<<<<<<<<<<<<<')
 
         const postData = await Listing.findAll({
+          where: {
+            user_id: req.session.user_id
+          },
           include: [
             {
               model: Material,
-            }],
+            },
+            {
+              model: User,
+            },
+          ]
           });
           const listings = postData.map((post) =>
           post.get({ plain: true })

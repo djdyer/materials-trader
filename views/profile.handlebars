@@ -1,6 +1,7 @@
 <div class="dash">
     <div class="title_header">
-        <h3>PROFILE</h3>
+        <h3>{{listing.[0].user.username}}</h3>
+        {{log listings.user.username}}
         <p>(profile.handlebars)</p>
         <a id="logout" href="/home"><h3>LOGOUT</h3></a>
     </div>
@@ -8,14 +9,21 @@
         <div id="your_posts">
         <h4>Your posts:</h4>
         </div>
+          {{#if listings.length}}
 {{#each listings as |listing|}}
         <div class="user_posts">
+        
         <h3 class="post_title">{{listing.material.type}}</h3>
         <h5 id="post_date">{{format_date listing.createdAt}}</h5>
+
+        <form class="delete" action="/api/users/deletelisting/{{listing.id}}" method="post" id="createform">
+          <button type="submit" value="Submit" id="deleteBtn">Delete</button>
+        </form>
         </div>
 {{/each}}
-
-        {{!-- <button type="submit" href="/create" id="postBtn"><h3>POST RECYCLEABLES</h3></button> --}}
+{{/if}}
+ 
+        
         <form class="create" action="/newlisting" method="get" id="createform">
           <button type="submit" value="Submit" id="createBtn">LIST RECYCLABLES</button>
         </form>
