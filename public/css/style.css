@@ -9,6 +9,7 @@ body {
   background-image: linear-gradient(#05465e, #022b3a);
   text-align: center;
   height: 100vh;
+  width: 100vw;
   width: auto;
   overflow-x: hidden;
   display: flex;
@@ -18,7 +19,7 @@ body {
 
 #logo {
   display: block;
-  margin: 60pt auto 20pt auto;
+  margin: 40pt auto 30pt auto;
   width: 180px;
   text-align: center;
 }
@@ -73,6 +74,10 @@ li {
   margin-right: 25pt;
 }
 
+#trashcan-icon {
+  width: 25px;
+}
+
 #home-text:hover,
 #profile-text:hover,
 #search-text:hover {
@@ -97,7 +102,7 @@ button {
 }
 
 .buttons {
-  margin: 35pt;
+  margin: 20pt;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,6 +157,10 @@ section {
   box-shadow: 0 8px 35px rgb(19, 19, 19);
 }
 
+section.detail {
+  margin-top: 40pt;
+}
+
 form,
 .dash {
   width: 700px;
@@ -160,6 +169,14 @@ form,
   border-radius: 8pt;
   border: 2px solid transparent;
   box-shadow: 0 8px 35px rgb(19, 19, 19);
+}
+
+#deleteform:hover {
+  border: 2px solid transparent;
+}
+
+.dash {
+  margin-top: 150pt;
 }
 
 section:hover,
@@ -192,7 +209,7 @@ form:hover {
 }
 
 .detail .post_title {
-  margin: 10pt auto 5pt auto;
+  margin: 5pt auto;
 }
 
 .form_body {
@@ -220,6 +237,7 @@ form:hover {
   width: 200px;
   height: auto;
   border-radius: 0 0 0 7pt;
+  
 }
 
 .content {
@@ -238,6 +256,12 @@ form:hover {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-top: 5pt;
+}
+
+#username,
+#date {
+  margin: 0 0 0 5pt;
 }
 
 input {
@@ -259,7 +283,6 @@ select:focus {
 
 #loginBtn,
 #signupBtn,
-#postBtn,
 #createBtn,
 #saveBtn,
 #deleteBtn {
@@ -277,15 +300,20 @@ select:focus {
   text-align: left;
 }
 
-#postBtn,
 #createBtn,
 #saveBtn,
 #deleteBtn {
   margin: 20pt auto;
 }
 
-#deleteBtn {
-  margin-top: 0;
+.dash #deleteBtn {
+  background: none;
+  width: auto;
+}
+
+
+.dash #createBtn {
+  margin-top: 30pt;
 }
 
 
@@ -294,9 +322,14 @@ select:focus {
   border: 2px solid #2da24e;
 }
 
+#deleteBtn {
+  background-color: none;
+}
+
 .user_posts {
   background-color: white;
   width: 500px;
+  height: 70px;
   display: flex;
   flex-direction: row;
   margin: 10pt;
@@ -305,6 +338,11 @@ select:focus {
   padding: 0 10pt;
   border: 2pt solid transparent;
 }
+
+.user_posts .post_title {
+  margin-right: 20px;
+}
+
 
 #your_posts {
   margin-left: -560px;
@@ -316,7 +354,6 @@ select:focus {
   margin-left: 5pt;
 }
 
-#postBtn:hover,
 #createBtn:hover,
 #saveBtn:hover,
 #deleteBtn:hover {
@@ -338,8 +375,19 @@ select:focus {
   /* margin-bottom: 100pt; */
 }
 
+.create #saveBtn,
+.create #deleteBtn {
+  margin-bottom: 0;
+}
+
 .login_form {
   border: none;
+}
+
+.dash form {
+  background: none;
+  box-shadow: none;
+  margin: 0;
 }
 
 select {
@@ -377,6 +425,10 @@ select:enabled {
 
 #material-location {
   height: 40px;
+}
+
+#material-contact {
+  margin-bottom: 0;
 }
 
 #photo-selection::-webkit-file-upload-button {
@@ -607,6 +659,10 @@ button.search-button {
   margin-right: 50px;
 }
 
+button #deleteBtn:hover {
+  border:none;
+}
+
 @media screen and (max-width: 1200px) {
   html {
     justify-content: space-around;
@@ -632,11 +688,7 @@ button.search-button {
     justify-content: space-around;
   }
 
-  form,
-  .dash {
-    margin-top: 30pt;
-    width: 600px;
-  }
+
 
   #your_posts {
     margin-left: -460px;
@@ -696,5 +748,44 @@ button.search-button {
 
   #oil-icon {
     margin-right: 90px;
+  }
+
+  #home-icon {
+    margin-right: 10pt;
+  }
+
+  #profile-icon{
+    width: 30px; 
+    margin: 0;
+  }
+
+  #search-icon {
+    margin-right: 10pt;
+    margin-left: 0pt;
+  }
+
+  #profile-text {
+    padding-left: 10pt;
+  }
+
+
+  .user_date {
+    flex-direction: column;
+  }
+
+  h4{
+    font-size: 10pt;
+  }
+
+  section {
+    margin: 20px auto;
+  }
+
+  .detail .post_title {
+    margin-top: 5pt;
+  }
+
+  .detail .content_body {
+    padding-bottom: 0;
   }
 }

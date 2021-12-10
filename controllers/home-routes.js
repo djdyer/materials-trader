@@ -1,8 +1,5 @@
 const router = require('express').Router()
-
 const { Material, Listing, User} = require('../models')
-
-// Import the custom middleware
 const withAuth = require('../utils/auth')
 
 // get homepage
@@ -37,6 +34,7 @@ console.log(listings)
   }
 })
 
+// get specific listing 
 router.get('/listing/:id', async (req, res) => {
   console.log(">>>>>>>>>>>>>>> GET route to /listing/:id <<<<<<<<<<<<<<<");
   console.log("session",req.session);
@@ -72,6 +70,7 @@ router.get('/listing/:id', async (req, res) => {
   }
 });
 
+// SAME FUNCTION AS ABOVE??
 router.get('/listing/:id', async (req, res) => {
   console.log(">>>>>>>>>>>>>>> GET route to /listing/:id <<<<<<<<<<<<<<<");
   console.log("session",req.session);
@@ -106,7 +105,6 @@ router.get('/listing/:id', async (req, res) => {
 });
 
 // GET the form to edit a listing
-// Use the custom middleware before allowing the user to access this route
 router.get('/editlisting/:id', withAuth, async (req, res) => {
   console.log(">>>>>>>>>>>>>>> /editlisting/",req.params.id,"GET route <<<<<<<<<<<<<<<<")  
   try {
@@ -115,7 +113,7 @@ router.get('/editlisting/:id', withAuth, async (req, res) => {
         {
           model: Material,
           attributes: [
-            'type'
+            'type', 'id'
           ],
         },
         {
@@ -136,7 +134,6 @@ router.get('/editlisting/:id', withAuth, async (req, res) => {
   }
 });
 
-//delete a specific listing
 
 // Get form to create a new listing
 router.get('/newlisting', async (req, res) => {
@@ -179,6 +176,14 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+// Logout sends back to home
+router.get("/logout", (req, res) => {
+  req.session.loggedIn = false;
+  res.redirect("/");
+  return;
+});
+
+// Go to profile only if logged in
 router.get('/profile', withAuth, async (req, res) => {
   try {
     console.log('>>>>>>>>>> GET / profile route <<<<<<<<<<<<<<<<<')

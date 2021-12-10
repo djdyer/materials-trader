@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Listing, Material } = require('../../models');
 
-// Sign up
+// SIGN-UP
 router.post('/', async (req, res) => {
   console.log(">>>>>>>>>> POST / sign-up route <<<<<<<<<<<<<");
 
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Login
+// LOGIN
 router.post('/login', async (req, res) => {
   console.log(">>>>>>>>>> POST /login route <<<<<<<<<<<<<");
   try {
@@ -67,12 +67,19 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Update listing
-router.post('/updatelisting/:id', async (req, res) => {
-  console.log(">>>>>>>>>> POST /updatelisting/:id route <<<<<<<<<<<<<");
+// PUTS EDITED listing
+router.put('/updatelisting/:id', async (req, res) => {
+  console.log(">>>>>>>>>> PUT /updatelisting/:id route <<<<<<<<<<<<<");
   console.log("req.body",req.body)
   try {
-    const dbListingReturn = await Listing.update({description: req.body.description}, {
+    const dbListingReturn = await Listing.update(
+      {
+        description: req.body.description,
+        amount: req.body.amount,
+        contact: req.body.contact,
+        location: req.body.location
+      },
+      {
       where: {
         id: req.body.listing_id
       }
@@ -98,7 +105,7 @@ router.post('/updatelisting/:id', async (req, res) => {
   }
 });
 
-// Create listing
+// CREATE listing
 router.post('/createlisting', async (req, res) => {
   console.log(">>>>>>>>>> POST /createlisting route <<<<<<<<<<<<<");
   console.log("req.body",req.body)
@@ -140,13 +147,12 @@ res.status(200).render('home', {
 });
 
 
-//delete listing
-router.post('/deletelisting/:id', async (req, res) => {
+// DELETE listing
+router.delete('/deletelisting/:id', async (req, res) => {
   try {
     const listingData = await Listing.destroy({
       where: {
         id: req.params.id
-       
       },
     });
 
@@ -156,10 +162,8 @@ router.post('/deletelisting/:id', async (req, res) => {
     }
 
     dbListingData = await Listing.findAll({
-
       where: {
         user_id: req.session.user_id
-       
       },
       include: [
         {
@@ -187,12 +191,7 @@ console.log(listings)
   }
 });
 
-
-
-
-
-
-// Logout
+// LOGOUT
 router.post('/logout', (req, res) => {
   console.log(">>>>>>>>>> POST /logout route <<<<<<<<<<<<<");
   if (req.session.loggedIn) {

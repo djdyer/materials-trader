@@ -1,34 +1,51 @@
 <div class="dash">
-  <div class="title_header">
-    <a id="logout" href="/home">
-      <h3>LOGOUT</h3>
-    </a>
-  </div>
-  <div class="dash_body">
-    <div id="your_posts">
-    <h4>Your posts:</h4>
+    <div class="title_header">
+        <h3>{{listings.[0].user.username}}</h3>
+        <a id="logout" href="/logout">
+          <h3>LOGOUT</h3>
+        </a>
     </div>
+    <div class="dash_body">
+      <div id="your_posts">
+        <h4>Your posts:</h4>
+      </div>
+
     {{#if listings.length}}
     {{#each listings as |listing|}}
-    <div class="user_posts">    
-      <h3 class="post_title">{{listing.material.type}}</h3>
-      <h5 id="post_date">{{format_date listing.createdAt}}</h5>
+      <div class="user_posts">
 
-      <form class="delete" action="/api/users/deletelisting/{{listing.id}}" method="post" id="createform">
-        <button type="submit" value="submit" id="deleteBtn">
-          <img id="trash-icon" src="../public/images/trashcan.png"/>
+        <input type="hidden" id="hiddenListing" name='listing_id' value='{{listing.id}}'></input>
+        
+        {{!-- SELECT USER POST TO ROUTE TO EDIT VIEW --}}
+        <a href="/editlisting/{{listing.id}}">
+          <h3 class="post_title">{{listing.material.type}}</h3>
+          <h5 id="post_date">{{format_date listing.createdAt}}</h5>
+        </a>
+
+        {{!-- DELETE BUTTON  --}}
+        <button class="delete" id="deleteBtn" 
+        {{!-- action="/listings/deletelisting/{{listing.id}}" method="delete"  --}}
+        type="click">
+            <img id="trashcan-icon" src="../images/trashcan.png"/>
         </button>
-      </form>
-    </div>
+
+ 
+
+      </div>
     {{/each}}
     {{/if}}
-        
-    <form class="create" action="/newlisting" method="get" id="createform">
-      <button type="submit" id="postBtn" value="submit" id="createBtn">
-        <h3>LIST RECYCLABLES</h3>
+   
+    {{!-- GO TO CREATE FORM --}}
+      <a href="/newlisting">
+        <button class="create" 
+        {{!-- action="/api/users/createlisting"  --}}
+        {{!-- method="get"  --}}
+        type="click" id="createBtn">
+           <h3>LIST RECYCLABLES</h3>
         </button>
-    </form>
-  </div> 
-  </div>
-<script src='js/create.js'></script>
+      </a>
 
+    </div>
+</div>
+<script src='/js/delete.js'></script>
+{{!-- <script src='/js/logout.js'></script> --}}
