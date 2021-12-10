@@ -288,6 +288,7 @@ select:focus {
   margin-top: 0;
 }
 
+
 #loginBtn:hover,
 #signupBtn:hover {
   border: 2px solid #2da24e;
@@ -409,6 +410,15 @@ select:enabled {
   flex-direction: column;
 }
 
+#trash-icon {
+  height: 50px;
+}
+
+form.create {
+  box-shadow: none;
+  margin: none;
+}
+
 #location-map {
   position: relative;
   margin-right: -20px;
@@ -434,6 +444,23 @@ select:enabled {
 .create:hover,
 .login_form:hover {
   border: none;
+}
+
+form.delete {
+  box-shadow: none;
+  margin-bottom: none;
+}
+
+form #createform {
+box-shadow: none;
+}
+
+form #createform .create {
+  margin: none;
+}
+
+button #postBtn {
+  width: auto;
 }
 
 .search {
