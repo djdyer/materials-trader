@@ -1,41 +1,63 @@
-<form class="create" action="/api/users/updatelisting{{id}}" method="post">
+<form class="create">
+{{!-- action="/api/users/updatelisting{{id}}" method="post"> --}}
         <div class="title_header">
           <h3>EDIT LISTING</h3>
-          <h2>(edit.handlebars)</h2>
-
-
         </div>
         <div class="form_body">
           <div>
-            <h3 class="post_title">MATERIAL:</h3>
-            <select id="material-selection"
-            > {{listing.material.type}}</select>
-            <h3 class="post_title">PHOTO:</h3>
-            <input type="file" id="photo-selection"
-            > {{listing.photo}}</input>
+            {{!-- <h3 class="post_title">MATERIAL:</h3>
+            <input id="material-selection" type="hidden" name='listing_id' value='{{listing.id}}' value="{{listing.material.type}}"></input> --}}
+
+            {{!-- <select id="material-selection" name="material_id"> {{listing.materials.[{{listing.materials.[0].id}}].type}}
+
+              <option value="{{materials.[0].id}}">{{materials.[0].type}}</option>
+              <option value="{{materials.[1].id}}">{{materials.[1].type}}</option>
+              <option value="{{materials.[2].id}}">{{materials.[2].type}}</option>
+              <option value="{{materials.[3].id}}">{{materials.[3].type}}</option>
+              <option value="{{materials.[4].id}}">{{materials.[4].type}}</option>
+              <option value="{{materials.[5].id}}">{{materials.[5].type}}</option>
+              <option value="{{materials.[6].id}}">{{materials.[6].type}}</option>
+              <option value="{{materials.[7].id}}">{{materials.[7].type}}</option>
+              <option value="{{materials.[8].id}}">{{materials.[8].type}}</option>
+              <option value="{{materials.[9].id}}">{{materials.[9].type}}</option>
+              <option value="{{materials.[10].id}}">{{materials.[10].type}}</option>
+            </select> --}}
+
+
+            {{!-- <h3 class="post_title">PHOTO:</h3>
+            <input type="file" id="photo-selection"> {{listing.photo}}</input> --}}
+            
+            <input type="hidden" id="hiddenListing" name='listing_id' value='{{listing.id}}'></input>
+
             <h3 class="post_title">DESCRIPTION:</h3>
-            <textarea id="material-description"
-            >{{listing.description}}</textarea>
+            <textarea id="material-description">{{listing.description}}</textarea>
+
             <h3 class="post_title">AMOUNT:</h3>
-            <textarea id="material-amount"
-            >{{listing.amount}}</textarea>
+            <textarea id="material-amount">{{listing.amount}}</textarea>
+
             <h3 class="post_title">LOCATION:</h3>
             <input id="material-location" value="{{listing.location}}">
-            Location
             </input>
+
             <h3 class="post_title">CONTACT:</h3>
-            <input id="material-contact"
-            >{{listing.contact}}</input>
+            <input id="material-contact" value="{{listing.contact}}"></input>
           </div>
-          <button type="submit" id="saveBtn">
+
+          <button type="click" id="saveBtn">
             <h3>SAVE</h3>
           </button>
-          <button type="submit" id="deleteBtn">
+
+          <button type="click" id="deleteBtn">
             <h3>DELETE</h3>
           </button>
+
         </div>
       </form>
-<p>vvvvvvvvvvvvvvvvvv Test area vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
+
+      <script src="../js/edit.js"></script>
+      <script src="../js/delete.js"></script>
+
+{{!-- <p>vvvvvvvvvvvvvvvvvv Test area vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
       <div class="form_body">
     <p>{{listing.material.type}}</p>
     <p>{{listing.description}}</p>
@@ -53,4 +75,4 @@
      <input type="hidden" name='location' value='{{listing.location}}'>
     </form>
     <button type="submit" form="testform" value="Submit">TEST IT</button>
-      </div>
+      </div> --}}

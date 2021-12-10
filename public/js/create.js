@@ -2,22 +2,25 @@
 const photo = document.querySelector('#photo-upload');
 
 // Variable for the uploaded photo
-var uploadedPhoto = "";
+// var uploadedPhoto = "";
 
-photo.addEventListener("upload", function() {
-  const reader = new FileReader();
-  reader.addEventListener("upload", () => {
-    uploadedPhoto = reader.result;
-    document.querySelector("#post_image").style.backgroundImage = `url(${uploadedPhoto})`;
-  });
-  reader.readAsDataURL(this.files[0]);
-});
+// photo.addEventListener("upload", function() {
+//   const reader = new FileReader();
+//   reader.addEventListener("upload", () => {
+//     uploadedPhoto = reader.result;
+//     document.querySelector("#post_image").style.backgroundImage = `url(${uploadedPhoto})`;
+//   });
+//   reader.readAsDataURL(this.files[0]);
+// });
 
+
+// Create a post 
 async function createListing(event) {
   event.preventDefault()
 
   // Accept title and content
-  const material = document.querySelector('#material-selection').value
+  const material_id = document.querySelector('#material-selection').value
+  const photo = document.querySelector('#photo-upload');
   const description = document.querySelector('#material-description').value
   const amount = document.querySelector('#material-amount').value
   const location = document.querySelector('#material-location').value
@@ -26,11 +29,11 @@ async function createListing(event) {
   // ID on where the image goes
   id="post_image"
 
-  if (material && photo && description && amount && location && contact) {
+  if (material_id && description && amount && location && contact) {
     const response = await fetch('/api/users/createlisting', {
       method: 'POST',
       body: JSON.stringify({
-        material,
+        material_id,
         photo,
         description,
         amount,
@@ -50,4 +53,4 @@ async function createListing(event) {
   }
 }
 
-document.querySelector('.create').addEventListener('submit', createListing)
+document.querySelector('.create').addEventListener('click', createListing)

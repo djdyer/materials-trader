@@ -1,14 +1,16 @@
 async function deleteHandler(event) {
   event.preventDefault();
 
-  const id = window.location.toString().split("/")[
-    window.location.toString().split("/").length - 1
-  ];
+  // const id = window.location.toString().split("/")[
+  //   window.location.toString().split("/").length - 1
+  // ];
 
-  const response = await fetch(`/api/articles/${id}`, {
+  const listing_id = document.querySelector("#hiddenListing").value;
+
+  const response = await fetch(`/api/users/deletelisting/${listing_id}`, {
     method: "DELETE",
     body: JSON.stringify({
-      article_id,
+      listing_id,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -16,10 +18,10 @@ async function deleteHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace("/dash");
+    document.location.replace("/profile");
   } else {
-    alert("Failed to delete article");
+    alert("Failed to delete listing");
   }
 }
 
-document.querySelector("#delete").addEventListener("click", deleteHandler);
+document.querySelector("#deleteBtn").addEventListener("click", deleteHandler);
