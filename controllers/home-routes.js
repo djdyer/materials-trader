@@ -203,6 +203,7 @@ router.get('/profile', withAuth, async (req, res) => {
           console.log(listings);
     res.render('profile', {
       listings,
+      
       loggedIn: req.session.loggedIn,
     })
   } catch (err) {
