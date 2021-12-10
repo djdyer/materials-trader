@@ -23,11 +23,13 @@
         </a>
 
         {{!-- DELETE BUTTON  --}}
-        <button class="delete" id="deleteBtn" 
-        {{!-- action="/listings/deletelisting/{{listing.id}}" method="delete"  --}}
-        type="click">
-            <img id="trashcan-icon" src="../images/trashcan.png"/>
-        </button>
+        <div id="trashcan">
+          <button class="delete" id="deleteBtn" 
+          {{!-- action="/listings/deletelisting/{{listing.id}}" method="delete"  --}}
+          type="click">
+              <img id="trashcan-icon" src="../images/trashcan.png"/>
+          </button>
+        </div>
 
  
 

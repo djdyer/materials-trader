@@ -104,6 +104,25 @@ router.get('/listing/:id', async (req, res) => {
   }
 });
 
+
+// Get form to create a new listing
+router.get('/newlisting', async (req, res) => {
+  console.log('>>>>>>>>>>>>>>> GET /newlisting route <<<<<<<<<<<<<<<<<<');
+  // res.render('create');
+
+  // Get a list of legitimate materials
+  const dbMaterialData = await Material.findAll();
+
+  const materials = dbMaterialData.map((material) =>
+    material.get({ plain: true })
+  );
+
+  console.log(materials);
+  res.status(200).render('create', {materials: materials,
+    loggedIn: req.session.loggedIn,
+  });
+});
+
 // GET the form to edit a listing
 router.get('/editlisting/:id', withAuth, async (req, res) => {
   console.log(">>>>>>>>>>>>>>> /editlisting/",req.params.id,"GET route <<<<<<<<<<<<<<<<")  
@@ -134,26 +153,6 @@ router.get('/editlisting/:id', withAuth, async (req, res) => {
   }
 });
 
-
-// Get form to create a new listing
-router.get('/newlisting', async (req, res) => {
-  console.log('>>>>>>>>>>>>>>> GET /newlisting route <<<<<<<<<<<<<<<<<<');
-  // res.render('create');
-
-  // Get a list of legitimate materials
-  const dbMaterialData = await Material.findAll();
-
-  const materials = dbMaterialData.map((material) =>
-    material.get({ plain: true })
-  );
-
-  console.log(materials);
-  res.status(200).render('create', {materials: materials,
-    loggedIn: req.session.loggedIn,
-  });
-});
-
-
 // User clicks on profile without Auth, must first login
 router.get('/login', (req, res) => {
   console.log('>>>>>>>>>>>>>>> GET /login redirect to /profile route <<<<<<<<<<<<<<<<<<')
@@ -183,6 +182,40 @@ router.get("/logout", (req, res) => {
   return;
 });
 
+// Search sends back to home with filtered results
+router.get("/search", (req, res) => {
+  res.render("search");
+  return;
+});
+
+// SEARCH materials
+router.get("/searchmaterial/:id", async (req, res) => {
+  try {
+    const searchData = await Listing.findAll({
+      where: {
+        material_id: req.params.id
+      },
+    });
+
+    if (!searchData) {
+      res.status(404).json({ message: 'No listing found with this id!' });
+      return;
+    }
+
+    const listings = searchData.map((listing) =>
+      listing.get({ plain: true })
+    );
+    console.log(listings, "This is our filtered result")
+
+    res.status(200).render('results', {
+      listings,
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 // Go to profile only if logged in
 router.get('/profile', withAuth, async (req, res) => {
   try {
@@ -204,11 +237,8 @@ router.get('/profile', withAuth, async (req, res) => {
           const listings = postData.map((post) =>
           post.get({ plain: true })
           );
-          
-          console.log(listings);
     res.render('profile', {
       listings,
-      
       loggedIn: req.session.loggedIn,
     })
   } catch (err) {

@@ -146,7 +146,6 @@ res.status(200).render('home', {
   }
 });
 
-
 // DELETE listing
 router.delete('/deletelisting/:id', async (req, res) => {
   try {

@@ -36,6 +36,7 @@ nav {
 
 main {
   margin-left: 120pt;
+  height: 1100px;
 }
 
 a,
@@ -308,7 +309,11 @@ select:focus {
 
 .dash #deleteBtn {
   background: none;
-  width: auto;
+  width: 50px;
+}
+
+.dash #deleteBtn:hover {
+  border: none;
 }
 
 
@@ -343,6 +348,11 @@ select:focus {
   margin-right: 20px;
 }
 
+#trashcan {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
 
 #your_posts {
   margin-left: -560px;
@@ -371,7 +381,7 @@ select:focus {
 .create,
 .detail {
   border: none;
-  margin-top: 60pt;
+  margin: 60pt auto;
   /* margin-bottom: 100pt; */
 }
 
@@ -468,7 +478,7 @@ select:enabled {
 
 form.create {
   box-shadow: none;
-  margin: none;
+  margin-bottom: 50px;
 }
 
 #location-map {
@@ -496,15 +506,6 @@ form.create {
 .create:hover,
 .login_form:hover {
   border: none;
-}
-
-form.delete {
-  box-shadow: none;
-  margin-bottom: none;
-}
-
-form #createform {
-box-shadow: none;
 }
 
 form #createform .create {
@@ -657,10 +658,6 @@ button.search-button {
   width: 50px;
   margin-left: 25px;
   margin-right: 50px;
-}
-
-button #deleteBtn:hover {
-  border:none;
 }
 
 @media screen and (max-width: 1200px) {
