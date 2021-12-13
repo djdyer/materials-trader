@@ -138,8 +138,8 @@ h3 {
 }
 
 /* Post Details */
-h4 {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+h4, p {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 12pt;
   font-weight: 100;
   color: #1a1a1a;
@@ -169,7 +169,8 @@ section.detail {
 }
 
 form,
-.dash {
+.dash,
+.about {
   width: 700px;
   margin: 40pt;
   margin-top: 200pt;
@@ -216,6 +217,8 @@ form:hover {
   border-radius: 0 0 8pt 8pt;
   text-align: left;
   padding: 25px;
+  background-color: #e0e2db;
+  border-radius: 0 0 8pt 8pt;
 }
 
 .detail .content_body {
@@ -697,13 +700,12 @@ button.search-button {
     margin-left: -460px;
   }
 
-  .search {
+  .search,
+  .dash,
+  .about {
     margin-top: 20px;
   }
 
-  .dash {
-    margin-top: 30px;
-  }
 
 }
 
@@ -712,8 +714,9 @@ button.search-button {
     width: 420px;
   }
   form,
-  .dash {
-    margin: 30pt auto;
+  .dash,
+  .about {
+    margin: 33pt;
     width: 420px;
   }
 
@@ -871,7 +874,7 @@ button.search-button {
 
  .login_form,
  .signup_form {
-   margin: 30px;
+   margin: 30px auto;
  }
 
  .create {
@@ -879,4 +882,63 @@ button.search-button {
  }
 }
 
+@media screen and (max-width: 450) {
+  section,
+  form,
+  .dash,
+  .create,
+  .about,
+  .login_form,
+  .signup_form {
+    margin: 25pt;
+    width: 350px;
+  }
+
+  .user_posts {
+    width: 300px;
+  }
+
+  .detail .post_title {
+    margin-top: 5pt;
+  }
+
+  #logo {
+    width: 120px;
+  }
+
+  .user_date {
+    flex-direction: column;
+    margin-top: 3px;
+  }
+
+  #home-icon,
+  #profile-icon,
+  #search-icon,
+  #about-icon {
+    width: 20px;
+    margin-left: 8px;
+  }
+
+  nav {
+    margin-right: 8px;
+  }
+
+
+  #location-map {
+    width: 170;
+    height: 250;
+  }
+
+  #Btn {
+    font-size: 16pt;
+  }
+
+  #logout h3 {
+    font-size: 14pt;
+  }
+
+ .post_image {
+   width: 130px;
+ }
+}
 
