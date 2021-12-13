@@ -156,7 +156,7 @@ h5 {
 }
 
 section {
-  width: 700px;
+  width: 600px;
   margin: 40pt;
   margin-bottom: 0;
   border-radius: 8pt;
@@ -515,10 +515,6 @@ form.create {
   border: none;
 }
 
-form #createform .create {
-  margin: none;
-}
-
 button #postBtn {
   width: auto;
 }
@@ -865,12 +861,16 @@ button.search-button {
     font-size: 16pt;
   }
 
-  main {
-margin-bottom: 300px;
-  }
+  /* main {
+    margin-bottom: 100px;
+  } */
 
  .login_form,
  .signup_form {
    margin: 30px;
+ }
+
+ .create {
+   margin-top: 20px;
  }
 }
