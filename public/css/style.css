@@ -43,7 +43,7 @@ a,
 li {
   display: flex;
   flex-direction: row;
-  font-family: "Amatic SC", cursive;
+  font-family: 'Amatic SC', cursive;
   font-size: 22pt;
   list-style: none;
   text-decoration: none;
@@ -115,24 +115,23 @@ button {
   align-items: center;
 }
 
-
 /* Lettermark */
 h1 {
-  font-family: "Amatic SC", cursive;
+  font-family: 'Amatic SC', cursive;
   font-size: 34pt;
   color: #e0e2db;
 }
 
 /* Slogan */
 h2 {
-  font-family: "Sue Ellen Francisco", cursive;
+  font-family: 'Sue Ellen Francisco', cursive;
   font-size: 18pt;
   color: #13b5d2;
 }
 
 /* Nav Links, Post Title, City */
 h3 {
-  font-family: "Amatic SC", cursive;
+  font-family: 'Amatic SC', cursive;
   font-size: 22pt;
   color: #e0e2db;
 }
@@ -148,7 +147,7 @@ h4 {
 
 /* User and Date */
 h5 {
-  font-family: "Sue Ellen Francisco", cursive;
+  font-family: 'Sue Ellen Francisco', cursive;
   font-size: 16pt;
   font-weight: 100;
   color: #2da24e;
@@ -211,6 +210,13 @@ form:hover {
   text-align: left;
 }
 
+#about-content {
+  align-content: center;
+  border-radius: 0 0 8pt 8pt;
+  text-align: left;
+  padding: 25px;
+}
+
 .detail .content_body {
   padding: 0 0 0 10pt;
 }
@@ -246,7 +252,6 @@ form:hover {
   width: 200px;
   height: auto;
   border-radius: 0 0 0 7pt;
-  
 }
 
 .content {
@@ -334,11 +339,9 @@ select:focus {
   border: none;
 }
 
-
 .dash #createBtn {
   margin-top: 30pt;
 }
-
 
 #loginBtn:hover,
 #signupBtn:hover {
@@ -455,7 +458,7 @@ select:enabled {
 
 #photo-selection::-webkit-file-upload-button {
   display: block;
-  content: "Choose photo";
+  content: 'Choose photo';
   background-color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 12pt;
@@ -693,7 +696,6 @@ button.search-button {
     justify-content: center;
   }
 
-
   #your_posts {
     margin-left: -460px;
   }
@@ -759,8 +761,8 @@ button.search-button {
     margin-right: 10pt;
   }
 
-  #profile-icon{
-    width: 30px; 
+  #profile-icon {
+    width: 30px;
     margin: 0;
   }
 
@@ -774,6 +776,7 @@ button.search-button {
   }
 
   h4{
+
     font-size: 10pt;
   }
 
@@ -874,3 +877,4 @@ margin-bottom: 300px;
    margin: 30px;
  }
 }
+
