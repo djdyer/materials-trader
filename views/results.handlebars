@@ -1,7 +1,7 @@
-console.log(listings, "Testing");
-<p>Testing</p>
+
+<h1>Results Page</h1>
 {{#each listings as |listing|}}
-console.log(listings, "Testing");
+
 <a id='listing' href="/listing/{{listing.id}}">
 <section>
   <div class="post_header">
@@ -9,7 +9,7 @@ console.log(listings, "Testing");
     <h3 id="city">{{listing.location}}</h3>
   </div>
   <div class="content_body">
-    <img class="post_image" src="/images/{{listing.material.type}}"/>
+    <img class="post_image" src="/images/{{listing.material.type}}-upload.jpeg"/>
     <div class="content">
       <div>
         <h4><b>Description:</b></h4>
