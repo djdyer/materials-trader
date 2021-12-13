@@ -19,7 +19,7 @@ body {
 
 #logo {
   display: block;
-  margin: 40pt auto 30pt auto;
+  margin: 30pt auto;
   width: 180px;
   text-align: center;
 }
@@ -35,7 +35,7 @@ nav {
 }
 
 main {
-  margin-left: 120pt;
+  margin: 0 33px 50px 120px;
   height: 1100px;
 }
 
@@ -57,9 +57,14 @@ li {
 
 #home-icon,
 #profile-icon,
-#search-icon {
+#search-icon,
+#about-icon {
   width: 35px;
-  margin: 15pt;
+  margin: 15px;
+}
+
+#about-icon {
+  margin: 10px 35px 10px 20px;
 }
 
 #home-icon {
@@ -81,7 +86,8 @@ li {
 
 #home-text:hover,
 #profile-text:hover,
-#search-text:hover {
+#search-text:hover,
+#about-text:hover {
   color: #2da24e;
 }
 
@@ -103,7 +109,7 @@ button {
 }
 
 .buttons {
-  margin: 20pt;
+  margin: 15pt;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,7 +164,7 @@ section {
 }
 
 section.detail {
-  margin-top: 40pt;
+  margin-top: 20pt;
 }
 
 form,
@@ -212,8 +218,10 @@ form:hover {
 }
 
 .detail .content_body {
-  padding: 10pt 15pt 20pt 15pt;
+  padding: 0 0 0 10pt;
 }
+
+
 
 .detail .post_title {
   margin: 5pt auto;
@@ -258,6 +266,10 @@ form:hover {
   margin-top: 10pt;
 }
 
+#description {
+  max-width: 350px;
+}
+
 .user_date {
   display: flex;
   flex-direction: row;
@@ -300,6 +312,12 @@ select:focus {
   justify-content: center;
   padding: 5pt;
   border: 2px solid transparent;
+}
+
+#loginOrProfileBtn,
+#searchBtn,
+#homeBtn {
+  margin: 0;
 }
 
 #dash_body h4 {
@@ -384,7 +402,7 @@ select:focus {
 .create,
 .detail {
   border: none;
-  margin: 60pt auto;
+  margin: 60px 30px;
   /* margin-bottom: 100pt; */
 }
 
@@ -395,12 +413,6 @@ select:focus {
 
 .login_form {
   border: none;
-}
-
-.dash form {
-  background: none;
-  box-shadow: none;
-  margin: 0;
 }
 
 select {
@@ -480,18 +492,14 @@ select:enabled {
 }
 
 form.create {
-  box-shadow: none;
   margin-bottom: 50px;
 }
 
 #location-map {
-  position: relative;
-  margin-right: -20px;
   display: block;
-  float: inline-end;
-  height: 400px;
+  height: 450px;
   width: auto;
-  margin-left: 15px;
+  margin-left: 5px;
   border-radius: 0 0 8pt 0;
 }
 
@@ -502,7 +510,6 @@ form.create {
 
 .detail .content_body {
   justify-content: space-between;
-  padding-top: 0;
 }
 
 .detail:hover,
@@ -520,11 +527,12 @@ button #postBtn {
 }
 
 .search {
-  margin-top: 80px;
+  margin: 80px 33px;
+  box-shadow: 0 8px 35px rgb(19, 19, 19);
 }
 
 .content_body .post_title {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .materials-icons {
@@ -677,15 +685,15 @@ button.search-button {
   }
 
   main {
-    margin-left: 0;
+    margin:0; 
   }
 
   .buttons {
-    margin: 10pt;
-    margin-left: 0;
+    margin: 0;
+    margin-top: 20px;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
   }
 
   #your_posts {
@@ -695,9 +703,14 @@ button.search-button {
   .search {
     margin-top: 20px;
   }
+
+  .dash {
+    margin-top: 30px;
+  }
+
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   section {
     width: 420px;
   }
@@ -718,10 +731,6 @@ button.search-button {
   #search-field {
     display: flex;
     flex-direction: column;
-  }
-
-  .form_body {
-    align-items: center;
   }
 
   #electronics-icon {
@@ -766,23 +775,106 @@ button.search-button {
     padding-left: 10pt;
   }
 
-  .user_date {
-    flex-direction: column;
-  }
+  h4{
 
-  h4 {
     font-size: 10pt;
   }
 
+  h5 {
+  font-size: 12pt;
+  }
+
   section {
-    margin: 20px auto;
+    margin: 15px 30px 30px 30px;
   }
 
   .detail .post_title {
     margin-top: 5pt;
   }
 
-  .detail .content_body {
-    padding-bottom: 0;
+  #logo {
+    width: 130px;
   }
+
+  .user_date {
+    justify-content: flex-start;
+    margin-top: 5pt;
+  }
+
+  .detail .content_body {
+    padding: 0 0 0 5px;
+  }
+  
+  .buttons {
+  justify-content: center;
+  }
+
+  #home-icon,
+  #profile-icon,
+  #search-icon,
+  #about-icon {
+    width: 25px;
+    margin-left: 10px;
+  }
+
+  #about-icon {
+    margin: 10px 10px 10px 0;
+  }
+
+  #home-icon,
+  #search-icon {
+    margin-right: 10px;
+  }
+
+  #search-icon {
+    margin-left: 20px;
+  }
+
+  #home-text,
+  #profile-text,
+  #search-text,
+  #about-text {
+    font-size: 16pt;
+  }
+
+  #home-text {
+    margin-right: 10px;
+  }
+
+  #profile-text {
+    margin-left: 0;
+  }
+
+  #location-map {
+    width: 240px;
+    height: 400px;
+  }
+
+  #Btn {
+    font-size: 16pt;
+  }
+
+  .form_body #loginBtn,
+  .form_body #signupBtn {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .content {
+    padding: 8px;
+  }
+
+  #logout h3 {
+    font-size: 16pt;
+  }
+
+  main {
+margin-bottom: 300px;
+  }
+
+ .login_form,
+ .signup_form {
+   margin: 30px;
+ }
 }
+
