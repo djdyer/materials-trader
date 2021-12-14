@@ -714,11 +714,12 @@ button.search-button {
   section,
   form,
   .dash,
+  .search,
   .create,
   .about,
   .login_form,
   .signup_form {
-    margin: 25pt;
+    margin: 20pt;
     width: 350px;
   }
 
@@ -806,6 +807,7 @@ button.search-button {
   
   .buttons {
   justify-content: center;
+  margin-right: 8px;
   }
 
   #home-icon,
