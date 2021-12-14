@@ -5,7 +5,7 @@ const API_KEY = 'AIzaSyD-RuWSCkmZwh_RKF5GZKhWWkbbwVKkrdQ'
 console.log('MAP JS CONNECTED')
 
 function mapApiCall() {
-  let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${API_KEY}`
+  let url = `https://maps.googleapis.com/maps/api/geocode/json?address=2400 River Place Xing, Douglasville, GA 30135&key=${API_KEY}`
 
   fetch(url)
     .then((response) => response.json())
@@ -30,7 +30,7 @@ function myMap(coords) {
     zoom: 5,
   }
   var map = new google.maps.Map(
-    document.getElementById('location-map'),
+    document.getElementById('#location-map'),
     mapProp,
   )
 }
