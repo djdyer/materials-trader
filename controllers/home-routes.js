@@ -52,42 +52,6 @@ router.get('/listing/:id', async (req, res) => {
       ],
     })
     const listing = listingData.get({ plain: true })
-    console.log('listing:', listing)
-    console.log('listing.user_id:', listing.user_id)
-    console.log('listing.user_id:', listing.user_id)
-    console.log('listing.user_id:', listing.user_id)
-    if (req.session.loggedIn && req.session.user_id == listing.user_id) {
-      res.render('edit', { listing, loggedIn: req.session.loggedIn })
-    } else {
-      res.render('listing', { listing, loggedIn: req.session.loggedIn })
-    }
-  } catch (err) {
-    console.log(err)
-    res.status(500).json(err)
-  }
-})
-
-// SAME FUNCTION AS ABOVE??
-router.get('/listing/:id', async (req, res) => {
-  console.log('>>>>>>>>>>>>>>> GET route to /listing/:id <<<<<<<<<<<<<<<')
-  console.log('session', req.session)
-  console.log('user_id', req.session.user_id)
-  try {
-    // Find the logged in user based on the session ID
-    const listingData = await Listing.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-
-        {
-          model: Material,
-          attributes: ['type'],
-        },
-      ],
-    })
-    const listing = listingData.get({ plain: true })
 
     if (req.session.loggedIn && req.session.user_id == listing.user_id) {
       res.render('edit', { listing, loggedIn: req.session.loggedIn })
@@ -99,6 +63,7 @@ router.get('/listing/:id', async (req, res) => {
     res.status(500).json(err)
   }
 })
+
 
 // Get form to create a new listing
 router.get('/newlisting', async (req, res) => {
