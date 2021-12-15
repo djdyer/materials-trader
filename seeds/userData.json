@@ -16,5 +16,59 @@
     "username": "ArmandGee",
     "email": "ag1990@aol.com",
     "password": "password123"
+  },
+  {
+    "id": 4,
+    "username": "JohnnyLaw",
+    "email": "john_bravo47@yahoo.com",
+    "password": "password123"
+  },
+  {
+    "id": 5,
+    "username": "MaggieLee",
+    "email": "maggieLee123@gmail.com",
+    "password": "password123"
+  },
+  {
+    "id": 6,
+    "username": "RobVaz",
+    "email": "robbie_vasquez@aol.com",
+    "password": "password123"
+  },
+  {
+    "id": 7,
+    "username": "SpikeLean",
+    "email": "spikeL33@hotmail.com",
+    "password": "password123"
+  },
+  {
+    "id": 8,
+    "username": "Juli3Maz3",
+    "email": "julieM447@hotmail.com",
+    "password": "password123"
+  },
+  {
+    "id": 9,
+    "username": "myEarthShip",
+    "email": "lara_fuller@aol.com",
+    "password": "password123"
+  },
+  {
+    "id": 10,
+    "username": "mechanic_Sam",
+    "email": "sam_delano@yahoo.com",
+    "password": "password123"
+  },
+  {
+    "id": 11,
+    "username": "PoolsByBrett",
+    "email": "poolsbybrett@gmail.com",
+    "password": "password123"
+  },
+  {
+    "id": 12,
+    "username": "SolarStorm75",
+    "email": "nathan_solar75@aol.com",
+    "password": "password123"
   }
 ]
