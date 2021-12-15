@@ -36,6 +36,8 @@ So that waste management infrastructure is alleviated.
 
 ## Demo
 
+[<img src="./assets/images/youtube.png" width="1200px">](https://youtu.be/rTlkAiMGiAM/)
+
 <img width="1200" src="./assets/demo/Materials_Trader_Mobile_Views.png">
 
 <br />
