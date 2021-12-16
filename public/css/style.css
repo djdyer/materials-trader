@@ -43,7 +43,7 @@ a,
 li {
   display: flex;
   flex-direction: row;
-  font-family: 'Amatic SC', cursive;
+  font-family: "Amatic SC", cursive;
   font-size: 22pt;
   list-style: none;
   text-decoration: none;
@@ -69,7 +69,7 @@ li {
 
 #home-icon {
   margin-right: 35px;
-  margin-left: 15px
+  margin-left: 15px;
 }
 
 #profile-icon {
@@ -118,28 +118,29 @@ button {
 
 /* Lettermark */
 h1 {
-  font-family: 'Amatic SC', cursive;
+  font-family: "Amatic SC", cursive;
   font-size: 34pt;
   color: #e0e2db;
 }
 
 /* Slogan */
 h2 {
-  font-family: 'Sue Ellen Francisco', cursive;
+  font-family: "Sue Ellen Francisco", cursive;
   font-size: 18pt;
   color: #13b5d2;
 }
 
 /* Nav Links, Post Title, City */
 h3 {
-  font-family: 'Amatic SC', cursive;
+  font-family: "Amatic SC", cursive;
   font-size: 22pt;
   color: #e0e2db;
 }
 
 /* Post Details */
-h4, p {
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+h4,
+p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 12pt;
   font-weight: 100;
   color: #1a1a1a;
@@ -148,7 +149,7 @@ h4, p {
 
 /* User and Date */
 h5 {
-  font-family: 'Sue Ellen Francisco', cursive;
+  font-family: "Sue Ellen Francisco", cursive;
   font-size: 16pt;
   font-weight: 100;
   color: #2da24e;
@@ -224,8 +225,6 @@ form:hover {
 .detail .content_body {
   padding: 0 0 0 10pt;
 }
-
-
 
 .detail .post_title {
   margin: 5pt auto;
@@ -462,7 +461,7 @@ select:enabled {
 
 #photo-selection::-webkit-file-upload-button {
   display: block;
-  content: 'Choose photo';
+  content: "Choose photo";
   background-color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 12pt;
@@ -499,10 +498,10 @@ form.create {
   margin-bottom: 50px;
 }
 
-#location-map {
+#map {
   display: block;
-  height: 450px;
-  width: auto;
+  height: 420px;
+  width: 300px;
   margin-left: 5px;
   border-radius: 0 0 8pt 0;
 }
@@ -685,7 +684,7 @@ button.search-button {
   }
 
   main {
-    margin:0; 
+    margin: 0;
   }
 
   .buttons {
@@ -705,12 +704,9 @@ button.search-button {
   .about {
     margin-top: 20px;
   }
-
-
 }
 
 @media screen and (max-width: 800px) {
-
   section,
   form,
   .dash,
@@ -778,13 +774,12 @@ button.search-button {
     padding-left: 10pt;
   }
 
-  h4{
-
+  h4 {
     font-size: 10pt;
   }
 
   h5 {
-  font-size: 12pt;
+    font-size: 12pt;
   }
 
   .detail .post_title {
@@ -804,10 +799,10 @@ button.search-button {
   .detail .content_body {
     padding: 0 0 0 5px;
   }
-  
+
   .buttons {
-  justify-content: center;
-  margin-right: 8px;
+    justify-content: center;
+    margin-right: 8px;
   }
 
   #home-icon,
@@ -846,8 +841,8 @@ button.search-button {
     margin-left: 0;
   }
 
-  #location-map {
-    width: 240px;
+  #map {
+    width: 260px;
     height: 350px;
   }
 

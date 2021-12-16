@@ -44,18 +44,15 @@
         </h4>
       </div>
     </div>
-    <div id="material-address" id="location-map">
+    <div id="map">
       {{! <img id='location-map' src='/images/map_test.png' /> }}
     </div>
   </div>
 </section>
 <script src="../js/map.js"></script>
 <script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-RuWSCkmZwh_RKF5GZKhWWkbbwVKkrdQ&callback=myMap"
+  async
   defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-RuWSCkmZwh_RKF5GZKhWWkbbwVKkrdQ&callback=initMap"
 >
 </script>
-
-{{! <script
-  src='https://maps.googleapis.com/maps/api/js?key=AIzaSyD-RuWSCkmZwh_RKF5GZKhWWkbbwVKkrdQ&callback=myMap'async
-></script> }}
