@@ -168,6 +168,9 @@ router.get('/searchmaterial/:id', async (req, res) => {
           model: Material,
           attributes: ['type', 'id'],
         },
+        {
+          model: User,
+        },
       ]
     })
 
