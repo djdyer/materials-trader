@@ -163,6 +163,12 @@ router.get('/searchmaterial/:id', async (req, res) => {
       where: {
         material_id: req.params.id,
       },
+      include:[
+        {
+          model: Material,
+          attributes: ['type', 'id'],
+        },
+      ]
     })
 
     if (!searchData) {
