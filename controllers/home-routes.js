@@ -195,22 +195,24 @@ router.get('/profile', withAuth, async (req, res) => {
   try {
     console.log('>>>>>>>>>> GET / profile route <<<<<<<<<<<<<<<<<')
 
-    const postData = await Listing.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
+    const postData = await User.findByPk(req.session.user_id,{
+      attributes: { exclude: ['password'] },
       include: [
         {
-          model: Material,
+          model: Listing,
+          include:[
+            {
+              model: Material,
+            },
+          ]
         },
-        {
-          model: User,
-        },
+        
       ],
     })
-    const listings = postData.map((post) => post.get({ plain: true }))
+    const userList = postData.get({ plain: true });
+    console.log(userList)
     res.render('profile', {
-      listings,
+      ...userList,
       loggedIn: req.session.loggedIn,
     })
   } catch (err) {

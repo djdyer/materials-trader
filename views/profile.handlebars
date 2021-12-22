@@ -1,6 +1,6 @@
 <div class="dash">
     <div class="title_header">
-        <h3>{{listings.[0].user.username}}</h3>
+        <h3>{{username}}</h3>
         <a id="logout" href="/logout">
           <h3>LOGOUT</h3>
         </a>
@@ -16,9 +16,9 @@
 
         <input type="hidden" id="hiddenListing" name='listing_id' value='{{listing.id}}'></input>
         
-        {{!-- SELECT USER POST TO ROUTE TO EDIT VIEW --}}
+        {{!-- SELECT USER POST TO ROUTE TO EDIT VIEW --}} 
         <a href="/editlisting/{{listing.id}}">
-          <h3 class="post_title">{{listing.material.type}}</h3>
+          <h3 class="post_title">{{listing.amount}}</h3>
           <h5 id="post_date">{{format_date listing.createdAt}}</h5>
         </a>
 
