@@ -1,6 +1,6 @@
 async function deleteHandler(event) {
   event.preventDefault();
-
+  console.log(this);
   // const id = window.location.toString().split("/")[
   //   window.location.toString().split("/").length - 1
   // ];
@@ -24,4 +24,11 @@ async function deleteHandler(event) {
   }
 }
 
-document.querySelector("#deleteBtn").addEventListener("click", deleteHandler);
+// document.querySelector("#deleteBtn").addEventListener("click", deleteHandler);
+
+var deleteAll = document.querySelectorAll(".delete");
+// console.log(deleteAll);
+for (var i = 0; i < deleteAll.length; i++) {
+  console.log(deleteAll[i]);
+  deleteAll[i].addEventListener("click", deleteHandler);
+}
